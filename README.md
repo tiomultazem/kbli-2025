@@ -1,6 +1,6 @@
 # Database KBLI 2025 (Klasifikasi Baku Lapangan Usaha Indonesia)
 
-Database terstruktur Klasifikasi Baku Lapangan Usaha Indonesia (KBLI) tahun 2025 hasil ekstraksi dari dokumen resmi Badan Pusat Statistik (BPS). 
+Database terstruktur Klasifikasi Baku Lapangan Usaha Indonesia (KBLI) tahun 2025 hasil ekstraksi dari dokumen resmi Badan Pusat Statistik (BPS) publikasi tanggal 24 Desember 2025 ([Sumber Resmi BPS](https://www.bps.go.id/id/publication/2025/12/24/a9b2f130776c7bea36008556/klasifikasi-baku-lapangan-usaha-indonesia-kbli-2025-.html)). 
 
 Repository ini didesain dengan tingkat kompatibilitas tinggi agar data mudah dibaca dan digunakan oleh berbagai bahasa pemrograman (JS, Python, PHP, Go, C#, Java, dll.) serta framework apa pun.
 
