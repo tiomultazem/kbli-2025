@@ -685,7 +685,7 @@ body.light-theme .sub-item-row:hover {
 /* Layout & Quick Nav Sidebar */
 .app-layout {
     display: grid;
-    grid-template-columns: 120px 1fr;
+    grid-template-columns: 70px 1fr;
     gap: 1.5rem;
     align-items: start;
     position: relative;
@@ -724,13 +724,13 @@ body.light-theme .sub-item-row:hover {
     background: transparent;
     border: 1px solid transparent;
     color: var(--text-secondary);
-    padding: 0.4rem 0.75rem;
+    padding: 0.4rem 0.25rem; /* Dikurangi agar fit di lebar 70px */
     border-radius: 8px;
     font-size: 0.8rem;
     font-weight: 600;
     font-family: var(--font-head);
     cursor: pointer;
-    text-align: left;
+    text-align: center; /* Ubah ke tengah agar presisi */
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -771,6 +771,7 @@ body.light-theme .sub-item-row:hover {
     .quick-nav-item {
         text-align: center;
         padding: 0.35rem 0.75rem;
+        flex-shrink: 0; /* Cegah penyusutan/overlap di layar HP */
     }
 }
 
