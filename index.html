@@ -44,16 +44,6 @@
                 Data diekstraksi menggunakan AI. Jika ada kekeliruan, mohon <a
                     href="https://wa.me/6285198870657?text=Halo%2C%20saya%20%28nama%29%20ingin%20memberi%20masukan%20untuk%20aplikasi%20KBLI%2C%20yaitu..." target="_blank">hubungi kami</a>.
             </p>
-            <div class="counter-container">
-                <div class="counter-card">
-                    <span class="counter-label">Hari Ini</span>
-                    <span id="todayViews" class="counter-value">...</span>
-                </div>
-                <div class="counter-card">
-                    <span class="counter-label">Total Kunjungan</span>
-                    <span id="totalViews" class="counter-value">...</span>
-                </div>
-            </div>
         </header>
 
         <!-- Search Input Wrapper -->
@@ -101,12 +91,17 @@
             <span id="timingInfo"></span>
         </div>
 
-        <!-- Results Container -->
-        <main id="results" class="results-list"></main>
+        <div class="app-layout">
+            <aside class="quick-nav" id="quickNav" style="display: none;"></aside>
+            <div class="main-content">
+                <!-- Results Container -->
+                <main id="results" class="results-list"></main>
 
-        <!-- Load More Button -->
-        <div id="loadMoreContainer" class="load-more-container" style="display: none;">
-            <button id="loadMoreBtn" class="load-more-btn">Tampilkan Lebih Banyak</button>
+                <!-- Load More Button -->
+                <div id="loadMoreContainer" class="load-more-container" style="display: none;">
+                    <button id="loadMoreBtn" class="load-more-btn">Tampilkan Lebih Banyak</button>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -331,6 +326,8 @@
                 const card = document.createElement('div');
                 const canDrillDown = item.levelLabel !== 'kelompok';
                 card.className = `card ${canDrillDown ? 'explorer-clickable' : ''}`;
+                card.id = `card-${item.code}`;
+                card.dataset.code = item.code;
 
                 const badgeClass = item.levelLabel;
                 const badgeName = LEVEL_NAME_MAP[item.levelLabel];
@@ -365,17 +362,20 @@
                 `;
                 }
 
+                const shouldCollapse = (item.description || '').length > 180;
+                const descriptionHtml = renderDescription(item.description || 'Tidak ada deskripsi spesifik.', shouldCollapse);
+
                 card.innerHTML = `
                 <div class="card-header">
                     <span class="badge ${badgeClass}">${badgeName}</span>
                 </div>
-                <div style="display: flex; align-items: center; width: 100%;">
+                <div class="card-clickable-header ${canDrillDown ? 'drilldown-trigger' : ''}" style="display: flex; align-items: center; width: 100%; cursor: ${canDrillDown ? 'pointer' : 'default'};">
                     <h3 class="code-title">
                         <span class="code-num">${item.code}</span> ${item.title}
                     </h3>
                     ${drilldownIconHtml}
                 </div>
-                <div class="description">${item.description || 'Tidak ada deskripsi spesifik.'}</div>
+                ${descriptionHtml}
                 ${subItemsHtml}
                 <div class="actions">
                     <button class="action-btn" title="Salin Kode" onclick="event.stopPropagation(); copyText('${item.code}')">
@@ -390,7 +390,9 @@
             `;
 
                 if (canDrillDown) {
-                    card.addEventListener('click', () => {
+                    const headerTrigger = card.querySelector('.card-clickable-header');
+                    headerTrigger.addEventListener('click', (e) => {
+                        e.stopPropagation();
                         explorerPath.push(item);
                         renderExplorer();
                     });
@@ -398,6 +400,8 @@
 
                 resultsContainer.appendChild(card);
             });
+
+            updateQuickNavFromDOM();
         }
 
         // Go back to explorer step
@@ -508,6 +512,8 @@
             paginatedItems.forEach(item => {
                 const card = document.createElement('div');
                 card.className = 'card';
+                card.id = `card-${item.code}`;
+                card.dataset.code = item.code;
 
                 const badgeClass = item.levelLabel;
                 const badgeName = LEVEL_NAME_MAP[item.levelLabel];
@@ -564,6 +570,9 @@
                 `;
                 }
 
+                const shouldCollapse = (item.description || '').length > 180;
+                const descriptionHtml = renderDescription(displayDesc, shouldCollapse);
+
                 card.innerHTML = `
                 <div class="card-header">
                     <span class="badge ${badgeClass}">${badgeName}</span>
@@ -571,7 +580,7 @@
                 <h3 class="code-title">
                     <span class="code-num">${displayCode}</span> ${displayTitle}
                 </h3>
-                <div class="description">${displayDesc}</div>
+                ${descriptionHtml}
                 ${subItemsHtml}
                 ${pathHtml}
                 <div class="actions">
@@ -597,6 +606,8 @@
             } else {
                 loadMoreContainer.style.display = 'none';
             }
+
+            updateQuickNavFromDOM();
         }
 
         // Open item in explorer from search breadcrumb
@@ -666,38 +677,101 @@
             });
         });
 
-        async function initTrafficCounter() {
-            const today = new Date().toISOString().split('T')[0].replace(/-/g, '');
-            const namespace = 'kbli2025_tabalong';
-            const todayKey = `visited_${today}`;
-            const hasVisitedToday = localStorage.getItem(todayKey);
-            const op = hasVisitedToday ? '' : '/up';
-
-            try {
-                const resToday = await fetch(`https://api.counterapi.dev/v1/${namespace}/today_${today}${op}`);
-                const dataToday = await resToday.json();
-                document.getElementById('todayViews').textContent = dataToday.value !== undefined ? dataToday.value : 0;
-            } catch (err) {
-                console.error(err);
-                document.getElementById('todayViews').textContent = '-';
-            }
-
-            try {
-                const resTotal = await fetch(`https://api.counterapi.dev/v1/${namespace}/total${op}`);
-                const dataTotal = await resTotal.json();
-                document.getElementById('totalViews').textContent = dataTotal.value !== undefined ? dataTotal.value : 0;
-            } catch (err) {
-                console.error(err);
-                document.getElementById('totalViews').textContent = '-';
-            }
-
-            if (!hasVisitedToday) {
-                localStorage.setItem(todayKey, 'true');
+        function renderDescription(displayText, shouldCollapse) {
+            if (shouldCollapse) {
+                return `
+                    <div class="desc-wrapper">
+                        <div class="description collapsed">${displayText}</div>
+                        <button class="toggle-desc-btn" onclick="event.stopPropagation(); toggleDescription(this)">
+                            Baca Selengkapnya
+                            <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="margin-left: 2px; transition: transform 0.2s;">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"></path>
+                            </svg>
+                        </button>
+                    </div>
+                `;
+            } else {
+                return `
+                    <div class="desc-wrapper">
+                        <div class="description">${displayText}</div>
+                    </div>
+                `;
             }
         }
 
+        window.toggleDescription = function (btn) {
+            const desc = btn.previousElementSibling;
+            const svg = btn.querySelector('svg');
+            if (desc.classList.contains('collapsed')) {
+                desc.classList.remove('collapsed');
+                btn.innerHTML = `Sembunyikan <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="margin-left: 2px; transform: rotate(180deg);"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"></path></svg>`;
+            } else {
+                desc.classList.add('collapsed');
+                btn.innerHTML = `Baca Selengkapnya <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="margin-left: 2px;"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"></path></svg>`;
+                desc.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+        };
+
+        let quickNavObserver = null;
+        function updateQuickNavFromDOM() {
+            const quickNav = document.getElementById('quickNav');
+            const layout = document.querySelector('.app-layout');
+            quickNav.innerHTML = '';
+            
+            const cards = Array.from(resultsContainer.querySelectorAll('.card'));
+            
+            if (cards.length <= 1) {
+                quickNav.style.display = 'none';
+                layout.classList.add('no-sidebar');
+                return;
+            } else {
+                quickNav.style.display = 'flex';
+                layout.classList.remove('no-sidebar');
+            }
+
+            cards.forEach(card => {
+                const code = card.dataset.code;
+                const btn = document.createElement('button');
+                btn.className = 'quick-nav-item';
+                btn.dataset.code = code;
+                btn.textContent = code;
+                btn.onclick = (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                };
+                quickNav.appendChild(btn);
+            });
+
+            // Active state detection via IntersectionObserver
+            if (quickNavObserver) quickNavObserver.disconnect();
+            
+            quickNavObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const code = entry.target.dataset.code;
+                        document.querySelectorAll('.quick-nav-item').forEach(btn => {
+                            if (btn.dataset.code === code) {
+                                btn.classList.add('active');
+                                btn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+                            } else {
+                                btn.classList.remove('active');
+                            }
+                        });
+                    }
+                });
+            }, {
+                root: null,
+                rootMargin: '-20% 0px -60% 0px',
+                threshold: 0
+            });
+
+            cards.forEach(card => {
+                quickNavObserver.observe(card);
+            });
+        }
+
         loadDatabase();
-        initTrafficCounter();
     </script>
 </body>
 
