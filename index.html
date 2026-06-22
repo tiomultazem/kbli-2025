@@ -43,8 +43,18 @@
             <p>Klasifikasi Baku Lapangan Usaha Indonesia &bull; 2026 &copy; BPS Kabupaten Tabalong</p>
             <p style="margin-top: 0.5rem; font-size: 0.85rem; color: var(--text-muted);">
                 Data diekstraksi menggunakan AI. Jika ada kekeliruan, mohon <a
-                    href="https://github.com/tiomultazem/kbli-2025" target="_blank">hubungi kami</a>.
+                    href="https://wa.me/6285198870657?text=Halo%2C%20saya%20%28nama%29%20ingin%20memberi%20masukan%20untuk%20aplikasi%20KBLI%2C%20yaitu..." target="_blank">hubungi kami</a>.
             </p>
+            <div class="counter-container">
+                <div class="counter-card">
+                    <span class="counter-label">Hari Ini</span>
+                    <span id="todayViews" class="counter-value">...</span>
+                </div>
+                <div class="counter-card">
+                    <span class="counter-label">Total Kunjungan</span>
+                    <span id="totalViews" class="counter-value">...</span>
+                </div>
+            </div>
         </header>
 
         <!-- Search Input Wrapper -->
@@ -667,7 +677,38 @@
             });
         });
 
+        async function initTrafficCounter() {
+            const today = new Date().toISOString().split('T')[0].replace(/-/g, '');
+            const namespace = 'kbli2025_tabalong';
+            const todayKey = `visited_${today}`;
+            const hasVisitedToday = localStorage.getItem(todayKey);
+            const op = hasVisitedToday ? '' : '/up';
+
+            try {
+                const resToday = await fetch(`https://api.counterapi.dev/v1/${namespace}/today_${today}${op}`);
+                const dataToday = await resToday.json();
+                document.getElementById('todayViews').textContent = dataToday.value !== undefined ? dataToday.value : 0;
+            } catch (err) {
+                console.error(err);
+                document.getElementById('todayViews').textContent = '-';
+            }
+
+            try {
+                const resTotal = await fetch(`https://api.counterapi.dev/v1/${namespace}/total${op}`);
+                const dataTotal = await resTotal.json();
+                document.getElementById('totalViews').textContent = dataTotal.value !== undefined ? dataTotal.value : 0;
+            } catch (err) {
+                console.error(err);
+                document.getElementById('totalViews').textContent = '-';
+            }
+
+            if (!hasVisitedToday) {
+                localStorage.setItem(todayKey, 'true');
+            }
+        }
+
         loadDatabase();
+        initTrafficCounter();
     </script>
 </body>
 
