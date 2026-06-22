@@ -4,7 +4,11 @@ Database terstruktur Klasifikasi Baku Lapangan Usaha Indonesia (KBLI) tahun 2025
 
 Repository ini didesain dengan tingkat kompatibilitas tinggi agar data mudah dibaca dan digunakan oleh berbagai bahasa pemrograman (JS, Python, PHP, Go, C#, Java, dll.) serta framework apa pun.
 
+## Aplikasi Pencarian & Static API
 
+Repository ini dilengkapi dengan aplikasi web pencarian instan dan layanan static API gratis:
+*   **Aplikasi Web Pencarian:** [https://tiomultazem.github.io/kbli-2025/](https://tiomultazem.github.io/kbli-2025/) (Interactive, cepat, dan mobile-friendly).
+*   **Static REST API:** Seluruh file data JSON dapat diakses langsung menggunakan HTTP GET (misal: `https://tiomultazem.github.io/kbli-2025/05_kelompok.json`) untuk integrasi data instan ke aplikasi Anda tanpa perlu database backend.
 
 ## File Database yang Tersedia
 

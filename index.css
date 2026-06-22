@@ -9,6 +9,9 @@
     --text-secondary: hsl(220, 10%, 65%);
     --text-muted: hsl(220, 10%, 45%);
     
+    --bg-search: rgba(26, 29, 38, 0.8);
+    --bg-muted-box: rgba(0, 0, 0, 0.25);
+    
     --accent: hsl(250, 100%, 65%);
     --accent-glow: hsla(250, 100%, 65%, 0.15);
     
@@ -23,6 +26,29 @@
     --shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
 }
 
+body.light-theme {
+    --bg-main: hsl(220, 20%, 97%);
+    --bg-card: hsl(0, 0%, 100%);
+    --bg-card-hover: hsl(220, 20%, 93%);
+    --border-color: hsl(220, 15%, 85%);
+    --text-primary: hsl(220, 25%, 15%);
+    --text-secondary: hsl(220, 15%, 40%);
+    --text-muted: hsl(220, 10%, 60%);
+    
+    --bg-search: rgba(255, 255, 255, 0.85);
+    --bg-muted-box: rgba(0, 0, 0, 0.04);
+    
+    --accent: hsl(250, 85%, 55%);
+    --accent-glow: hsla(250, 85%, 55%, 0.1);
+    
+    --kategori: hsl(200, 95%, 35%);
+    --gol-pokok: hsl(280, 85%, 45%);
+    --golongan: hsl(330, 90%, 45%);
+    --subgolongan: hsl(30, 95%, 40%);
+    --kelompok: hsl(140, 80%, 32%);
+    --shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -35,6 +61,7 @@ body {
     font-family: var(--font-body);
     line-height: 1.6;
     padding-bottom: 3rem;
+    transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 /* Container */
@@ -50,19 +77,33 @@ header {
     margin-bottom: 2rem;
 }
 
+.header-title-container {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+}
+
 header h1 {
     font-family: var(--font-head);
-    font-size: 2.5rem;
+    font-size: 2.75rem;
     font-weight: 800;
     background: linear-gradient(135deg, hsl(250, 100%, 75%), hsl(190, 100%, 60%));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    margin-bottom: 0.5rem;
+}
+
+body.light-theme header h1 {
+    background: linear-gradient(135deg, hsl(250, 90%, 55%), hsl(195, 100%, 40%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 header p {
     color: var(--text-secondary);
     font-size: 0.95rem;
+    transition: color 0.4s ease;
 }
 
 header a {
@@ -76,6 +117,52 @@ header a:hover {
     opacity: 0.8;
 }
 
+/* Theme Toggle Button */
+.theme-toggle-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-secondary);
+    transition: background-color 0.3s, color 0.3s, transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+    outline: none;
+}
+
+.theme-toggle-btn:hover {
+    background-color: var(--bg-card-hover);
+    color: var(--text-primary);
+    transform: scale(1.15) rotate(15deg);
+}
+
+.theme-toggle-btn .sun-icon {
+    display: none;
+}
+
+.theme-toggle-btn .moon-icon {
+    display: block;
+}
+
+body.light-theme .theme-toggle-btn .sun-icon {
+    display: block;
+}
+
+body.light-theme .theme-toggle-btn .moon-icon {
+    display: none;
+}
+
+body.light-theme .theme-toggle-btn {
+    transform: rotate(180deg);
+}
+
+body.light-theme .theme-toggle-btn:hover {
+    transform: rotate(195deg) scale(1.15);
+}
+
 /* Search Box wrapper */
 .search-wrapper {
     position: sticky;
@@ -86,13 +173,13 @@ header a:hover {
 
 .search-container {
     display: flex;
-    background: rgba(26, 29, 38, 0.8);
+    background: var(--bg-search);
     border: 1px solid var(--border-color);
     border-radius: 16px;
     padding: 0.25rem;
     backdrop-filter: blur(12px);
     box-shadow: var(--shadow);
-    transition: border-color 0.3s, box-shadow 0.3s;
+    transition: border-color 0.3s, box-shadow 0.3s, background-color 0.4s ease;
 }
 
 .search-container:focus-within {
@@ -205,6 +292,43 @@ header a:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    transition: color 0.4s ease;
+}
+
+/* Explorer Breadcrumb */
+.explorer-breadcrumb {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1.25rem;
+    background: var(--bg-muted-box);
+    padding: 0.75rem 1rem;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: background-color 0.4s ease, border-color 0.4s ease;
+}
+
+.explorer-breadcrumb-item {
+    color: var(--accent);
+    cursor: pointer;
+    transition: opacity 0.2s, color 0.4s ease;
+}
+
+.explorer-breadcrumb-item:hover {
+    opacity: 0.8;
+}
+
+.explorer-breadcrumb-current {
+    color: var(--text-primary);
+    font-weight: 600;
+    transition: color 0.4s ease;
+}
+
+.explorer-breadcrumb-separator {
+    color: var(--text-muted);
 }
 
 /* Cards */
@@ -219,14 +343,27 @@ header a:hover {
     border: 1px solid var(--border-color);
     border-radius: 16px;
     padding: 1.25rem;
-    transition: transform 0.2s, border-color 0.2s, background 0.2s;
+    transition: transform 0.2s, border-color 0.4s ease, background-color 0.4s ease;
     position: relative;
     overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+.card.explorer-clickable {
+    cursor: pointer;
 }
 
 .card:hover {
     background: var(--bg-card-hover);
     border-color: hsl(220, 15%, 28%);
+}
+
+body.light-theme .card:hover {
+    border-color: hsl(220, 15%, 75%);
+}
+
+.card.explorer-clickable:hover {
+    transform: translateY(-2px);
 }
 
 .card-header {
@@ -259,11 +396,14 @@ header a:hover {
     font-weight: 700;
     flex: 1;
     color: var(--text-primary);
+    padding-right: 4.5rem; /* Space for copy buttons */
+    transition: color 0.4s ease;
 }
 
 .code-num {
     color: var(--accent);
     margin-right: 0.5rem;
+    transition: color 0.4s ease;
 }
 
 .description {
@@ -271,6 +411,7 @@ header a:hover {
     color: var(--text-secondary);
     margin-bottom: 1rem;
     word-break: break-word;
+    transition: color 0.4s ease;
 }
 
 .highlight {
@@ -278,6 +419,11 @@ header a:hover {
     color: hsl(50, 100%, 80%);
     padding: 0 0.1rem;
     border-radius: 2px;
+}
+
+body.light-theme .highlight {
+    background: hsla(50, 100%, 50%, 0.35);
+    color: hsl(50, 100%, 20%);
 }
 
 /* Breadcrumb Path */
@@ -288,9 +434,10 @@ header a:hover {
     gap: 0.35rem;
     font-size: 0.75rem;
     color: var(--text-muted);
-    background: rgba(0, 0, 0, 0.15);
+    background: var(--bg-muted-box);
     padding: 0.5rem 0.75rem;
     border-radius: 8px;
+    transition: background-color 0.4s ease;
 }
 
 .path-step {
@@ -306,6 +453,20 @@ header a:hover {
     color: var(--text-muted);
 }
 
+/* Card Chevron for Drilldown */
+.chevron-container {
+    display: flex;
+    align-items: center;
+    color: var(--text-muted);
+    transition: transform 0.2s, color 0.2s;
+    margin-left: auto;
+}
+
+.card:hover .chevron-container {
+    color: var(--accent);
+    transform: translateX(3px);
+}
+
 /* Actions */
 .actions {
     position: absolute;
@@ -313,6 +474,7 @@ header a:hover {
     right: 1.25rem;
     display: flex;
     gap: 0.5rem;
+    z-index: 10;
 }
 
 .action-btn {
@@ -327,6 +489,10 @@ header a:hover {
     justify-content: center;
     cursor: pointer;
     transition: all 0.2s;
+}
+
+body.light-theme .action-btn {
+    background: rgba(0, 0, 0, 0.03);
 }
 
 .action-btn:hover {
@@ -395,7 +561,7 @@ header a:hover {
 /* Responsive adjust for mobile */
 @media (max-width: 600px) {
     header h1 {
-        font-size: 2rem;
+        font-size: 2.25rem;
     }
     
     .container {
@@ -410,9 +576,18 @@ header a:hover {
         padding: 1rem;
     }
     
+    .code-title {
+        padding-right: 0;
+        font-size: 1.1rem;
+    }
+
+    .card-header {
+        margin-bottom: 0.5rem;
+    }
+
     .actions {
         position: static;
-        margin-top: 0.5rem;
+        margin-top: 0.75rem;
         justify-content: flex-end;
     }
 }
