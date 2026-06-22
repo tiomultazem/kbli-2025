@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KBLI 2025 - Klasifikasi Baku Lapangan Usaha Indonesia</title>
     <meta name="description" content="Aplikasi klasifikasi dan pencarian cepat untuk Klasifikasi Baku Lapangan Usaha Indonesia (KBLI) tahun 2025. Dilengkapi skema relasi dan data lengkap.">
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="index.css?v=1.4">
     
     <!-- Open Graph Metadata -->
     <meta property="og:title" content="KBLI 2025">
@@ -18,19 +18,17 @@
 
 <div class="container">
     <header>
-        <div class="header-title-container">
-            <h1 id="pageTitle">KBLI 2025</h1>
-            <button id="themeToggle" class="theme-toggle-btn" aria-label="Ganti Tema">
-                <!-- Sun Icon -->
-                <svg class="sun-icon" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.343l-.707-.707M12 7a5 5 0 100 10 5 5 0 000-10z"></path>
-                </svg>
-                <!-- Moon Icon -->
-                <svg class="moon-icon" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
-                </svg>
-            </button>
-        </div>
+        <button id="themeToggle" class="theme-toggle-btn" aria-label="Ganti Tema">
+            <!-- Sun Icon -->
+            <svg class="sun-icon" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.343l-.707-.707M12 7a5 5 0 100 10 5 5 0 000-10z"></path>
+            </svg>
+            <!-- Moon Icon -->
+            <svg class="moon-icon" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+            </svg>
+        </button>
+        <h1 id="pageTitle">KBLI 2025</h1>
         <p>Klasifikasi Baku Lapangan Usaha Indonesia &bull; Copyright &copy; 2026 BPS Kabupaten Tabalong</p>
         <p style="margin-top: 0.5rem; font-size: 0.85rem; color: var(--text-muted);">
             Data diekstraksi menggunakan AI. Jika ada kekeliruan, mohon <a href="https://github.com/tiomultazem/kbli-2025" target="_blank">hubungi kami</a>.
@@ -91,7 +89,7 @@
 <div id="toast" class="toast">Kode berhasil disalin!</div>
 
 <script>
-    // Theme Loader (Runs immediately before parsing database)
+    // Theme Loader
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme === 'light') {
         document.body.classList.add('light-theme');
@@ -225,6 +223,20 @@
         }
     }
 
+    // Retrieve child items from database
+    function getChildren(item) {
+        if (item.levelLabel === 'kategori') {
+            return database.filter(child => child.levelLabel === 'golongan-pokok' && child.kategori_code === item.code);
+        } else if (item.levelLabel === 'golongan-pokok') {
+            return database.filter(child => child.levelLabel === 'golongan' && child.golongan_pokok_code === item.code);
+        } else if (item.levelLabel === 'golongan') {
+            return database.filter(child => child.levelLabel === 'subgolongan' && child.golongan_code === item.code);
+        } else if (item.levelLabel === 'subgolongan') {
+            return database.filter(child => child.levelLabel === 'kelompok' && child.subgolongan_code === item.code);
+        }
+        return [];
+    }
+
     // Toggle Search vs Explorer Mode based on input content
     function renderApp() {
         const query = searchInput.value.trim().toLowerCase();
@@ -245,29 +257,24 @@
         let levelTitle = '';
 
         if (explorerPath.length === 0) {
-            // Show all categories
             currentItems = database.filter(item => item.levelLabel === 'kategori');
             levelTitle = 'Pilih Kategori';
         } else if (explorerPath.length === 1) {
-            // Show Golongan Pokok under selected Kategori
             const katCode = explorerPath[0].code;
             currentItems = database.filter(item => item.levelLabel === 'golongan-pokok' && item.kategori_code === katCode);
             levelTitle = `Golongan Pokok di bawah Kategori ${katCode}`;
         } else if (explorerPath.length === 2) {
-            // Show Golongan under selected Golongan Pokok
             const gpCode = explorerPath[1].code;
             currentItems = database.filter(item => item.levelLabel === 'golongan' && item.golongan_pokok_code === gpCode);
             levelTitle = `Golongan di bawah Golongan Pokok ${gpCode}`;
         } else if (explorerPath.length === 3) {
-            // Show Subgolongan under selected Golongan
             const golCode = explorerPath[2].code;
             currentItems = database.filter(item => item.levelLabel === 'subgolongan' && item.golongan_code === golCode);
             levelTitle = `Subgolongan di bawah Golongan ${golCode}`;
         } else if (explorerPath.length === 4) {
-            // Show Kelompok under selected Subgolongan
             const subCode = explorerPath[3].code;
             currentItems = database.filter(item => item.levelLabel === 'kelompok' && item.subgolongan_code === subCode);
-            levelTitle = `Kelompok (5 Digit) di bawah Subgolongan ${subCode}`;
+            levelTitle = `Kelompok di bawah Subgolongan ${subCode}`;
         }
 
         // Render Breadcrumb
@@ -314,6 +321,30 @@
                 `;
             }
 
+            // Build Subcomponents Preview Html
+            const children = getChildren(item);
+            let subItemsHtml = '';
+            if (children.length > 0) {
+                const limit = 8;
+                const displayedChildren = children.slice(0, limit);
+                const hasMore = children.length > limit;
+                
+                subItemsHtml = `
+                    <div class="sub-items-container">
+                        <div class="sub-items-title">Subkomponen (${children.length}):</div>
+                        <div class="sub-items-list">
+                            ${displayedChildren.map(child => `
+                                <div class="sub-item-row" onclick="event.stopPropagation(); drillDownToCode('${child.code}')">
+                                    <span class="sub-item-code">[${child.code}]</span>
+                                    <span class="sub-item-title">${child.title}</span>
+                                </div>
+                            `).join('')}
+                            ${hasMore ? `<div style="font-size: 0.8rem; color: var(--text-muted); padding: 0.2rem 0.5rem;">... dan ${children.length - limit} subkomponen lainnya.</div>` : ''}
+                        </div>
+                    </div>
+                `;
+            }
+
             card.innerHTML = `
                 <div class="card-header">
                     <span class="badge ${badgeClass}">${badgeName}</span>
@@ -325,6 +356,7 @@
                     ${drilldownIconHtml}
                 </div>
                 <div class="description">${item.description || 'Tidak ada deskripsi spesifik.'}</div>
+                ${subItemsHtml}
                 <div class="actions">
                     <button class="action-btn" title="Salin Kode" onclick="event.stopPropagation(); copyText('${item.code}')">
                         <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -356,6 +388,29 @@
             explorerPath = explorerPath.slice(0, index + 1);
         }
         renderExplorer();
+    };
+
+    // Fast navigation from subcomponents or path links in search
+    window.drillDownToCode = function(code) {
+        const item = lookupTable[code];
+        if (!item) return;
+        
+        // Clear search to shift to explorer mode
+        searchInput.value = '';
+        clearBtn.style.display = 'none';
+
+        // Rebuild path
+        explorerPath = [];
+        if (item.path && item.path.length > 0) {
+            explorerPath = [...item.path];
+        }
+        
+        // If it's a category or other subcomponent, we can push it to explorerPath to drill down
+        if (item.levelLabel !== 'kelompok') {
+            explorerPath.push(item);
+        }
+        
+        renderApp();
     };
 
     // Contains Multi-word "AND" Search Logic
@@ -454,6 +509,7 @@
             const displayCode = highlightText(item.code);
             const displayDesc = highlightText(item.description || 'Tidak ada deskripsi spesifik.');
 
+            // Build Path Breadcrumbs
             let pathHtml = '';
             if (item.path && item.path.length > 0) {
                 pathHtml = `
@@ -469,6 +525,30 @@
                 `;
             }
 
+            // Build Subcomponents Preview Html
+            const children = getChildren(item);
+            let subItemsHtml = '';
+            if (children.length > 0) {
+                const limit = 8;
+                const displayedChildren = children.slice(0, limit);
+                const hasMore = children.length > limit;
+                
+                subItemsHtml = `
+                    <div class="sub-items-container">
+                        <div class="sub-items-title">Subkomponen (${children.length}):</div>
+                        <div class="sub-items-list">
+                            ${displayedChildren.map(child => `
+                                <div class="sub-item-row" onclick="event.stopPropagation(); drillDownToCode('${child.code}')">
+                                    <span class="sub-item-code">[${child.code}]</span>
+                                    <span class="sub-item-title">${child.title}</span>
+                                </div>
+                            `).join('')}
+                            ${hasMore ? `<div style="font-size: 0.8rem; color: var(--text-muted); padding: 0.2rem 0.5rem;">... dan ${children.length - limit} subkomponen lainnya.</div>` : ''}
+                        </div>
+                    </div>
+                `;
+            }
+
             card.innerHTML = `
                 <div class="card-header">
                     <span class="badge ${badgeClass}">${badgeName}</span>
@@ -477,6 +557,7 @@
                     <span class="code-num">${displayCode}</span> ${displayTitle}
                 </h3>
                 <div class="description">${displayDesc}</div>
+                ${subItemsHtml}
                 ${pathHtml}
                 <div class="actions">
                     <button class="action-btn" title="Salin Kode" onclick="copyText('${item.code}')">

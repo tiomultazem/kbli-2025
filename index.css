@@ -12,8 +12,8 @@
     --bg-search: rgba(26, 29, 38, 0.8);
     --bg-muted-box: rgba(0, 0, 0, 0.25);
     
-    --accent: hsl(250, 100%, 65%);
-    --accent-glow: hsla(250, 100%, 65%, 0.15);
+    --accent: hsl(250, 100%, 70%);
+    --accent-glow: hsla(250, 100%, 70%, 0.15);
     
     --kategori: hsl(200, 100%, 60%);
     --gol-pokok: hsl(280, 100%, 70%);
@@ -75,14 +75,8 @@ body {
 header {
     text-align: center;
     margin-bottom: 2rem;
-}
-
-.header-title-container {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.75rem;
-    margin-bottom: 0.5rem;
+    position: relative;
+    padding-top: 1rem;
 }
 
 header h1 {
@@ -92,6 +86,7 @@ header h1 {
     background: linear-gradient(135deg, hsl(250, 100%, 75%), hsl(190, 100%, 60%));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    margin-bottom: 0.5rem;
 }
 
 body.light-theme header h1 {
@@ -119,24 +114,29 @@ header a:hover {
 
 /* Theme Toggle Button */
 .theme-toggle-btn {
-    background: transparent;
-    border: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
     cursor: pointer;
-    width: 42px;
-    height: 42px;
-    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
     color: var(--text-secondary);
-    transition: background-color 0.3s, color 0.3s, transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+    box-shadow: var(--shadow);
+    transition: background-color 0.3s, border-color 0.3s, color 0.3s, transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
     outline: none;
 }
 
 .theme-toggle-btn:hover {
     background-color: var(--bg-card-hover);
     color: var(--text-primary);
-    transform: scale(1.15) rotate(15deg);
+    transform: scale(1.1) rotate(15deg);
+    border-color: var(--text-secondary);
 }
 
 .theme-toggle-btn .sun-icon {
@@ -160,7 +160,7 @@ body.light-theme .theme-toggle-btn {
 }
 
 body.light-theme .theme-toggle-btn:hover {
-    transform: rotate(195deg) scale(1.15);
+    transform: rotate(195deg) scale(1.1);
 }
 
 /* Search Box wrapper */
@@ -253,11 +253,11 @@ body.light-theme .theme-toggle-btn:hover {
     overflow-x: auto;
     padding-bottom: 0.75rem;
     margin-bottom: 1.5rem;
-    scrollbar-width: none; /* Firefox */
+    scrollbar-width: none;
 }
 
 .tabs-container::-webkit-scrollbar {
-    display: none; /* Safari and Chrome */
+    display: none;
 }
 
 .tab {
@@ -314,11 +314,14 @@ body.light-theme .theme-toggle-btn:hover {
 .explorer-breadcrumb-item {
     color: var(--accent);
     cursor: pointer;
-    transition: opacity 0.2s, color 0.4s ease;
+    transition: opacity 0.2s, color 0.4s ease, border-color 0.2s;
+    text-decoration: none;
+    border-bottom: 1px dashed var(--accent);
 }
 
 .explorer-breadcrumb-item:hover {
     opacity: 0.8;
+    border-bottom-style: solid;
 }
 
 .explorer-breadcrumb-current {
@@ -412,6 +415,8 @@ body.light-theme .card:hover {
     margin-bottom: 1rem;
     word-break: break-word;
     transition: color 0.4s ease;
+    text-align: justify;
+    text-indent: 2rem;
 }
 
 .highlight {
@@ -499,6 +504,57 @@ body.light-theme .action-btn {
     background: var(--accent);
     color: hsl(250, 100%, 10%);
     border-color: var(--accent);
+}
+
+/* Sub-items list inside card */
+.sub-items-container {
+    margin-top: 1rem;
+    border-top: 1px dashed var(--border-color);
+    padding-top: 0.75rem;
+}
+
+.sub-items-title {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    letter-spacing: 0.07em;
+    margin-bottom: 0.5rem;
+}
+
+.sub-items-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.sub-item-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    cursor: pointer;
+    padding: 0.25rem 0.5rem;
+    border-radius: 6px;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.sub-item-row:hover {
+    background-color: var(--bg-muted-box);
+    color: var(--accent);
+}
+
+.sub-item-code {
+    font-family: var(--font-head);
+    font-weight: 700;
+    color: var(--accent);
+}
+
+.sub-item-title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 /* Load More Button */
@@ -589,5 +645,10 @@ body.light-theme .action-btn {
         position: static;
         margin-top: 0.75rem;
         justify-content: flex-end;
+    }
+    
+    .theme-toggle-btn {
+        width: 38px;
+        height: 38px;
     }
 }
