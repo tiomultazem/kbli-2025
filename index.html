@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pencarian KBLI 2025 - Klasifikasi Baku Lapangan Usaha Indonesia</title>
+    <meta name="description" content="Aplikasi pencarian cepat dan responsif untuk Klasifikasi Baku Lapangan Usaha Indonesia (KBLI) tahun 2025. Dilengkapi skema relasi dan data lengkap.">
+    <link rel="stylesheet" href="index.css">
+    
+    <!-- Open Graph Metadata -->
+    <meta property="og:title" content="Pencarian KBLI 2025">
+    <meta property="og:description" content="Aplikasi pencarian cepat dan responsif untuk Klasifikasi Baku Lapangan Usaha Indonesia (KBLI) tahun 2025.">
+    <meta property="og:type" content="website">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📁</text></svg>">
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Pencarian KBLI 2025</h1>
+        <p>Klasifikasi Baku Lapangan Usaha Indonesia &bull; Resmi BPS Kabupaten Tabalong &copy; 2026</p>
+        <p style="margin-top: 0.5rem; font-size: 0.85rem; color: var(--text-muted);">
+            Data diekstraksi menggunakan AI. Jika ada kekeliruan, mohon <a href="https://github.com/tiomultazem/kbli-2025" target="_blank">hubungi kami</a>.
+        </p>
+    </header>
+
+    <!-- Search Input Wrapper -->
+    <div class="search-wrapper">
+        <div class="search-container">
+            <div class="search-icon">
+                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                </svg>
+            </div>
+            <input type="text" id="searchInput" class="search-input" placeholder="Cari kode (contoh: 01113) atau kata kunci..." disabled>
+            <button id="clearBtn" class="clear-btn">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- Filter Tabs -->
+    <div class="tabs-container">
+        <button class="tab active" data-level="all">Semua Level</button>
+        <button class="tab" data-level="kategori">Kategori (A-V)</button>
+        <button class="tab" data-level="golongan-pokok">Golongan Pokok</button>
+        <button class="tab" data-level="golongan">Golongan</button>
+        <button class="tab" data-level="subgolongan">Subgolongan</button>
+        <button class="tab" data-level="kelompok">Kelompok (5 Digit)</button>
+    </div>
+
+    <!-- Loading Indicator -->
+    <div id="loading" class="loading-indicator">
+        <div class="spinner"></div>
+        <p>Memuat database KBLI 2025...</p>
+    </div>
+
+    <!-- Results Meta -->
+    <div id="resultsMeta" class="results-info" style="display: none;">
+        <span id="resultsCount">Menampilkan 0 hasil</span>
+        <span id="timingInfo"></span>
+    </div>
+
+    <!-- Results Container -->
+    <main id="results" class="results-list"></main>
+
+    <!-- Load More Button -->
+    <div id="loadMoreContainer" class="load-more-container" style="display: none;">
+        <button id="loadMoreBtn" class="load-more-btn">Tampilkan Lebih Banyak</button>
+    </div>
+</div>
+
+<!-- Copy Toast Notification -->
+<div id="toast" class="toast">Kode berhasil disalin!</div>
+
+<script>
+    // Configuration
+    const JSON_FILES = {
+        kategori: '01_kategori.json',
+        'golongan-pokok': '02_golongan_pokok.json',
+        golongan: '03_golongan.json',
+        subgolongan: '04_subgolongan.json',
+        kelompok: '05_kelompok.json'
+    };
+
+    // App State
+    let database = [];
+    let searchIndex = [];
+    let currentFilter = 'all';
+    let searchQuery = '';
+    let currentPage = 1;
+    const ITEMS_PER_PAGE = 30;
+
+    // Elements
+    const searchInput = document.getElementById('searchInput');
+    const clearBtn = document.getElementById('clearBtn');
+    const loadingEl = document.getElementById('loading');
+    const resultsMeta = document.getElementById('resultsMeta');
+    const resultsCount = document.getElementById('resultsCount');
+    const timingInfo = document.getElementById('timingInfo');
+    const resultsContainer = document.getElementById('results');
+    const loadMoreContainer = document.getElementById('loadMoreContainer');
+    const loadMoreBtn = document.getElementById('loadMoreBtn');
+    const toast = document.getElementById('toast');
+    const tabs = document.querySelectorAll('.tab');
+
+    // Helper to format level labels
+    const LEVEL_MAP = {
+        'Category': 'kategori',
+        'Golongan Pokok': 'golongan-pokok',
+        'Golongan': 'golongan',
+        'Subgolongan': 'subgolongan',
+        'Kelompok': 'kelompok'
+    };
+
+    // Load Database
+    async function loadDatabase() {
+        try {
+            const fetchPromises = Object.entries(JSON_FILES).map(async ([level, filename]) => {
+                const res = await fetch(filename);
+                if (!res.ok) throw new Error(`Gagal memuat ${filename}`);
+                const data = await res.json();
+                return data.map(item => ({
+                    ...item,
+                    levelLabel: level // e.g. 'kategori', 'kelompok'
+                }));
+            });
+
+            const results = await Promise.all(fetchPromises);
+            
+            // Merge all levels
+            database = [].concat(...results);
+
+            // Pre-process relationships/hierarchical paths to make search rendering fast
+            // Build lookup tables
+            const lookup = {};
+            database.forEach(item => {
+                lookup[item.code] = item;
+            });
+
+            // Populate breadcrumb paths for each item
+            database.forEach(item => {
+                const path = [];
+                let current = item;
+                
+                if (item.levelLabel === 'kelompok' && item.subgolongan_code) {
+                    path.unshift(lookup[item.subgolongan_code]);
+                    const sub = lookup[item.subgolongan_code];
+                    if (sub && sub.golongan_code) {
+                        path.unshift(lookup[sub.golongan_code]);
+                        const gol = lookup[sub.golongan_code];
+                        if (gol && gol.golongan_pokok_code) {
+                            path.unshift(lookup[gol.golongan_pokok_code]);
+                            const gp = lookup[gol.golongan_pokok_code];
+                            if (gp && gp.kategori_code) {
+                                path.unshift(lookup[gp.kategori_code]);
+                            }
+                        }
+                    }
+                } else if (item.levelLabel === 'subgolongan' && item.golongan_code) {
+                    path.unshift(lookup[item.golongan_code]);
+                    const gol = lookup[item.golongan_code];
+                    if (gol && gol.golongan_pokok_code) {
+                        path.unshift(lookup[gol.golongan_pokok_code]);
+                        const gp = lookup[gol.golongan_pokok_code];
+                        if (gp && gp.kategori_code) {
+                            path.unshift(lookup[gp.kategori_code]);
+                        }
+                    }
+                } else if (item.levelLabel === 'golongan' && item.golongan_pokok_code) {
+                    path.unshift(lookup[item.golongan_pokok_code]);
+                    const gp = lookup[item.golongan_pokok_code];
+                    if (gp && gp.kategori_code) {
+                        path.unshift(lookup[gp.kategori_code]);
+                    }
+                } else if (item.levelLabel === 'golongan-pokok' && item.kategori_code) {
+                    path.unshift(lookup[item.kategori_code]);
+                }
+                
+                // Keep only valid mapped steps
+                item.path = path.filter(Boolean);
+            });
+
+            loadingEl.style.display = 'none';
+            searchInput.disabled = false;
+            searchInput.placeholder = "Ketik kode KBLI (e.g. 0111) atau nama aktivitas...";
+            resultsMeta.style.display = 'flex';
+            
+            // Initial view
+            performSearch();
+        } catch (err) {
+            console.error(err);
+            loadingEl.innerHTML = `<p style="color: red;">Gagal memuat database: ${err.message}</p>`;
+        }
+    }
+
+    // Search Logic
+    function performSearch() {
+        const start = performance.now();
+        const query = searchInput.value.trim().toLowerCase();
+        
+        let filtered = database;
+
+        // Apply Level Filter
+        if (currentFilter !== 'all') {
+            filtered = filtered.filter(item => item.levelLabel === currentFilter);
+        }
+
+        // Apply Search Text Query
+        if (query) {
+            filtered = filtered.filter(item => {
+                const codeMatch = item.code.toLowerCase().includes(query);
+                const titleMatch = item.title.toLowerCase().includes(query);
+                const descMatch = (item.description || '').toLowerCase().includes(query);
+                return codeMatch || titleMatch || descMatch;
+            });
+
+            // Sort by relevance:
+            // 1. Exact code matches
+            // 2. Prefix code matches
+            // 3. Title matches
+            // 4. Description matches
+            filtered.sort((a, b) => {
+                const aCode = a.code.toLowerCase();
+                const bCode = b.code.toLowerCase();
+                if (aCode === query && bCode !== query) return -1;
+                if (bCode === query && aCode !== query) return 1;
+                
+                if (aCode.startsWith(query) && !bCode.startsWith(query)) return -1;
+                if (bCode.startsWith(query) && !aCode.startsWith(query)) return 1;
+
+                const aTitleIdx = a.title.toLowerCase().indexOf(query);
+                const bTitleIdx = b.title.toLowerCase().indexOf(query);
+                if (aTitleIdx !== -1 && bTitleIdx === -1) return -1;
+                if (bTitleIdx !== -1 && aTitleIdx === -1) return 1;
+                if (aTitleIdx !== -1 && bTitleIdx !== -1) return aTitleIdx - bTitleIdx;
+
+                return 0;
+            });
+        }
+
+        const end = performance.now();
+        const duration = ((end - start) / 1000).toFixed(3);
+
+        // Update Stats
+        resultsCount.textContent = `Ditemukan ${filtered.length} item`;
+        timingInfo.textContent = `Durasi: ${duration} detik`;
+
+        // Reset page
+        currentPage = 1;
+        renderResults(filtered, false);
+    }
+
+    // Render Results helper
+    function renderResults(items, append = false) {
+        if (!append) {
+            resultsContainer.innerHTML = '';
+        }
+
+        if (items.length === 0) {
+            resultsContainer.innerHTML = `
+                <div class="empty-state">
+                    <svg width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L12 12m0 0L7.5 7.5M12 12l4.5 4.5M12 12l-4.5 4.5M12 12l4.5-4.5"></path>
+                    </svg>
+                    <p>Tidak ada hasil yang cocok dengan kueri Anda.</p>
+                </div>
+            `;
+            loadMoreContainer.style.display = 'none';
+            return;
+        }
+
+        const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+        const endIndex = Math.min(currentPage * ITEMS_PER_PAGE, items.length);
+        const paginatedItems = items.slice(startIndex, endIndex);
+
+        const query = searchInput.value.trim();
+
+        paginatedItems.forEach(item => {
+            const card = document.createElement('div');
+            card.className = 'card';
+            
+            // Level Badge Class translation
+            const badgeClass = item.levelLabel;
+
+            // Highlight matches helper
+            const highlightText = (text) => {
+                if (!query) return text;
+                const esc = query.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
+                const regex = new RegExp(`(${esc})`, 'gi');
+                return text.replace(regex, '<span class="highlight">$1</span>');
+            };
+
+            const displayTitle = highlightText(item.title);
+            const displayCode = highlightText(item.code);
+            const displayDesc = highlightText(item.description || 'Tidak ada deskripsi spesifik.');
+
+            // Build Path Breadcrumbs
+            let pathHtml = '';
+            if (item.path && item.path.length > 0) {
+                pathHtml = `
+                    <div class="path-container">
+                        ${item.path.map(step => `
+                            <span class="path-step" onclick="searchForCode('${step.code}')" title="${step.title}">
+                                ${step.code}
+                            </span>
+                        `).join('<span class="path-separator">&rarr;</span>')}
+                        <span class="path-separator">&rarr;</span>
+                        <span style="color: var(--text-secondary); font-weight: 500;">${item.code}</span>
+                    </div>
+                `;
+            }
+
+            card.innerHTML = `
+                <div class="card-header">
+                    <span class="badge ${badgeClass}">${item.level}</span>
+                </div>
+                <h3 class="code-title">
+                    <span class="code-num">${displayCode}</span> ${displayTitle}
+                </h3>
+                <div class="description">${displayDesc}</div>
+                ${pathHtml}
+                <div class="actions">
+                    <button class="action-btn" title="Salin Kode" onclick="copyText('${item.code}')">
+                        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path>
+                        </svg>
+                    </button>
+                    <button class="action-btn" title="Salin JSON" onclick="copyJSON(this)" data-json='${JSON.stringify({code: item.code, title: item.title, level: item.level, description: item.description}).replace(/'/g, "&apos;")}' >
+                        { }
+                    </button>
+                </div>
+            `;
+            resultsContainer.appendChild(card);
+        });
+
+        // Show/hide load more button
+        if (endIndex < items.length) {
+            loadMoreContainer.style.display = 'block';
+            loadMoreBtn.onclick = () => {
+                currentPage++;
+                renderResults(items, true);
+            };
+        } else {
+            loadMoreContainer.style.display = 'none';
+        }
+    }
+
+    // Interactive helper: Click breadcrumb to search that parent code
+    window.searchForCode = function(code) {
+        searchInput.value = code;
+        clearBtn.style.display = 'flex';
+        performSearch();
+    };
+
+    // Copier functions
+    window.copyText = function(text) {
+        navigator.clipboard.writeText(text).then(() => {
+            showToast("Kode berhasil disalin!");
+        });
+    };
+
+    window.copyJSON = function(btn) {
+        const jsonStr = btn.getAttribute('data-json');
+        navigator.clipboard.writeText(jsonStr).then(() => {
+            showToast("Objek JSON berhasil disalin!");
+        });
+    };
+
+    function showToast(message) {
+        toast.textContent = message;
+        toast.classList.add('show');
+        setTimeout(() => {
+            toast.classList.remove('show');
+        }, 2000);
+    }
+
+    // Debounce Helper
+    function debounce(func, wait) {
+        let timeout;
+        return function(...args) {
+            clearTimeout(timeout);
+            timeout = setTimeout(() => func.apply(this, args), wait);
+        };
+    }
+
+    // Event Listeners
+    searchInput.addEventListener('input', debounce(() => {
+        clearBtn.style.display = searchInput.value ? 'flex' : 'none';
+        performSearch();
+    }, 150));
+
+    clearBtn.addEventListener('click', () => {
+        searchInput.value = '';
+        clearBtn.style.display = 'none';
+        searchInput.focus();
+        performSearch();
+    });
+
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            tabs.forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+            currentFilter = tab.getAttribute('data-level');
+            performSearch();
+        });
+    });
+
+    // Run loader
+    loadDatabase();
+</script>
+</body>
+</html>
