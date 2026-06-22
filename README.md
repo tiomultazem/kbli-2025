@@ -142,6 +142,6 @@ Setelah script selesai berjalan, file `kbli_2025.db` akan langsung tercipta/teru
 
 *   **Copyright:** &copy; 2026 Gilang Wahyu Prasetyo, BPS Kabupaten Tabalong.
 *   **Lisensi:** MIT License (Khusus Penggunaan).
-*   **Ketentuan Modifikasi:** Anda **tidak diperbolehkan mengubah atau mengedit dataset ini secara langsung** untuk didistribusikan ulang. Jika menemukan kesalahan data atau ingin mengajukan perubahan, Anda wajib bersurat/menghubungi **Gilang Wahyu Prasetyo**. Jangan mengubah data secara mandiri.
+*   **Ketentuan Modifikasi:** Anda **tidak diperbolehkan mengubah atau mengedit dataset ini secara langsung** untuk didistribusikan ulang. Jika menemukan kesalahan data atau ingin mengajukan perubahan, Anda wajib bersurat/menghubungi **kami**. Jangan mengubah data secara mandiri.
 *   **Status Data:** Data diekstraksi secara otomatis menggunakan AI dari PDF resmi KBLI 2025.
 
