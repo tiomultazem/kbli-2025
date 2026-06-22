@@ -158,6 +158,13 @@
             'kelompok': 'Kelompok'
         };
 
+        const CHILD_LEVEL_NAME_MAP = {
+            'kategori': 'Golongan Pokok',
+            'golongan-pokok': 'Golongan',
+            'golongan': 'Subgolongan',
+            'subgolongan': 'Kelompok'
+        };
+
         // Theme Toggle Handler
         themeToggle.addEventListener('click', () => {
             document.body.classList.toggle('light-theme');
@@ -347,9 +354,10 @@
                 const children = getChildren(item);
                 let subItemsHtml = '';
                 if (children.length > 0) {
+                    const childLevelName = CHILD_LEVEL_NAME_MAP[item.levelLabel] || 'Subkomponen';
                     subItemsHtml = `
                     <div class="sub-items-container">
-                        <div class="sub-items-title">Subkomponen (${children.length}):</div>
+                        <div class="sub-items-title">${childLevelName} (${children.length}):</div>
                         <div class="sub-items-list">
                             ${children.map(child => `
                                 <div class="sub-item-row" onclick="event.stopPropagation(); drillDownToCode('${child.code}')">
@@ -555,9 +563,10 @@
                 const children = getChildren(item);
                 let subItemsHtml = '';
                 if (children.length > 0) {
+                    const childLevelName = CHILD_LEVEL_NAME_MAP[item.levelLabel] || 'Subkomponen';
                     subItemsHtml = `
                     <div class="sub-items-container">
-                        <div class="sub-items-title">Subkomponen (${children.length}):</div>
+                        <div class="sub-items-title">${childLevelName} (${children.length}):</div>
                         <div class="sub-items-list">
                             ${children.map(child => `
                                 <div class="sub-item-row" onclick="event.stopPropagation(); drillDownToCode('${child.code}')">

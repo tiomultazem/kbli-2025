@@ -595,14 +595,22 @@ body.light-theme .action-btn {
     font-size: 0.85rem;
     color: var(--text-secondary);
     cursor: pointer;
-    padding: 0.25rem 0.5rem;
+    padding: 0.35rem 0.5rem; /* Sedikit diperlebar agar lebih mudah di-tap di HP */
     border-radius: 6px;
     transition: background-color 0.2s, color 0.2s;
 }
 
-.sub-item-row:hover {
+.sub-item-row:nth-child(even) {
     background-color: var(--bg-muted-box);
+}
+
+.sub-item-row:hover {
+    background-color: rgba(255, 255, 255, 0.07);
     color: var(--accent);
+}
+
+body.light-theme .sub-item-row:hover {
+    background-color: rgba(0, 0, 0, 0.07);
 }
 
 .sub-item-code {
