@@ -8,6 +8,7 @@
     <meta name="description"
         content="Aplikasi klasifikasi dan pencarian cepat untuk Klasifikasi Baku Lapangan Usaha Indonesia (KBLI) tahun 2025. Dilengkapi skema relasi dan data lengkap.">
     <link rel="stylesheet" href="index.css?v=1.5">
+    <link rel="manifest" href="manifest.json">
 
     <!-- Open Graph Metadata -->
     <meta property="og:title" content="KBLI 2025">
@@ -781,6 +782,14 @@
         }
 
         loadDatabase();
+
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js')
+                    .then(reg => console.log('Service Worker terdaftar!', reg))
+                    .catch(err => console.error('Gagal mendaftarkan Service Worker', err));
+            });
+        }
     </script>
 </body>
 
