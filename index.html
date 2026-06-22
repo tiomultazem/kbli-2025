@@ -351,21 +351,16 @@
                 const children = getChildren(item);
                 let subItemsHtml = '';
                 if (children.length > 0) {
-                    const limit = 8;
-                    const displayedChildren = children.slice(0, limit);
-                    const hasMore = children.length > limit;
-
                     subItemsHtml = `
                     <div class="sub-items-container">
                         <div class="sub-items-title">Subkomponen (${children.length}):</div>
                         <div class="sub-items-list">
-                            ${displayedChildren.map(child => `
+                            ${children.map(child => `
                                 <div class="sub-item-row" onclick="event.stopPropagation(); drillDownToCode('${child.code}')">
                                     <span class="sub-item-code">[${child.code}]</span>
                                     <span class="sub-item-title">${child.title}</span>
                                 </div>
                             `).join('')}
-                            ${hasMore ? `<div style="font-size: 0.8rem; color: var(--text-muted); padding: 0.2rem 0.5rem;">... dan ${children.length - limit} subkomponen lainnya.</div>` : ''}
                         </div>
                     </div>
                 `;
@@ -555,21 +550,16 @@
                 const children = getChildren(item);
                 let subItemsHtml = '';
                 if (children.length > 0) {
-                    const limit = 8;
-                    const displayedChildren = children.slice(0, limit);
-                    const hasMore = children.length > limit;
-
                     subItemsHtml = `
                     <div class="sub-items-container">
                         <div class="sub-items-title">Subkomponen (${children.length}):</div>
                         <div class="sub-items-list">
-                            ${displayedChildren.map(child => `
+                            ${children.map(child => `
                                 <div class="sub-item-row" onclick="event.stopPropagation(); drillDownToCode('${child.code}')">
                                     <span class="sub-item-code">[${child.code}]</span>
                                     <span class="sub-item-title">${child.title}</span>
                                 </div>
                             `).join('')}
-                            ${hasMore ? `<div style="font-size: 0.8rem; color: var(--text-muted); padding: 0.2rem 0.5rem;">... dan ${children.length - limit} subkomponen lainnya.</div>` : ''}
                         </div>
                     </div>
                 `;
