@@ -425,6 +425,10 @@ body.light-theme .card:hover {
     overflow: hidden;
 }
 
+.description.has-list {
+    text-indent: 0;
+}
+
 .description.collapsed {
     max-height: 4.5rem; /* Sekitar 3 baris teks */
     position: relative;

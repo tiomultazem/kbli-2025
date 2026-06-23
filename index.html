@@ -43,7 +43,8 @@
             <p>Klasifikasi Baku Lapangan Usaha Indonesia &bull; 2026 &copy; BPS Kabupaten Tabalong</p>
             <p style="margin-top: 0.5rem; font-size: 0.85rem; color: var(--text-muted);">
                 Data diekstraksi menggunakan AI. Jika ada kekeliruan, mohon <a
-                    href="https://wa.me/6285198870657?text=Halo%2C%20saya%20%28nama%29%20ingin%20memberi%20masukan%20untuk%20aplikasi%20KBLI%2C%20yaitu..." target="_blank">hubungi kami</a>.
+                    href="https://wa.me/6285198870657?text=Halo%2C%20saya%20%28nama%29%20ingin%20memberi%20masukan%20untuk%20aplikasi%20KBLI%2C%20yaitu..."
+                    target="_blank">hubungi kami</a>.
             </p>
         </header>
 
@@ -688,10 +689,20 @@
         });
 
         function renderDescription(displayText, shouldCollapse) {
+            // Ubah \n menjadi <br>
+            // Ubah juga spasi + strip (" - " atau " -") menjadi baris baru dengan strip
+            let formattedText = displayText
+                .replace(/\n/g, '<br>')
+                .replace(/\s+-\s+/g, '<br>- ')
+                .replace(/([^\n>])-\s+/g, '$1<br>- ');
+
+            const hasList = formattedText.includes('<br>-');
+            const listClass = hasList ? 'has-list' : '';
+
             if (shouldCollapse) {
                 return `
                     <div class="desc-wrapper">
-                        <div class="description collapsed">${displayText}</div>
+                        <div class="description collapsed ${listClass}">${formattedText}</div>
                         <button class="toggle-desc-btn" onclick="event.stopPropagation(); toggleDescription(this)">
                             Baca Selengkapnya
                             <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="margin-left: 2px; transition: transform 0.2s;">
@@ -703,7 +714,7 @@
             } else {
                 return `
                     <div class="desc-wrapper">
-                        <div class="description">${displayText}</div>
+                        <div class="description ${listClass}">${formattedText}</div>
                     </div>
                 `;
             }
@@ -727,9 +738,9 @@
             const quickNav = document.getElementById('quickNav');
             const layout = document.querySelector('.app-layout');
             quickNav.innerHTML = '';
-            
+
             const cards = Array.from(resultsContainer.querySelectorAll('.card'));
-            
+
             if (cards.length <= 1) {
                 quickNav.style.display = 'none';
                 layout.classList.add('no-sidebar');
@@ -755,7 +766,7 @@
 
             // Active state detection via IntersectionObserver
             if (quickNavObserver) quickNavObserver.disconnect();
-            
+
             quickNavObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
