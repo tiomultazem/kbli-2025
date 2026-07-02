@@ -68,7 +68,7 @@
   {
     "code": "032",
     "title": "PEMBUDIDAYAAN IKAN DAN BIOTA AIR LAINNYA",
-    "description": "Golongan ini mencakup kegiatan pembudidayaan ikan, misalnya proses produksi yang melibatkan penebaran benih (pendederan), pembesaran, pembiakan atau pembenihan, hingga pemanenan dari biota air, seperti ikan bersirip (kerapu, kakap, dan sejenisnya), moluska  (kerang, tiram, cumi-cumi, gurita, siput, dan sebangsanya), krustasea (udang, lobster, rajungan, kepiting, dan sebangsanya), coelenterata (ubur -ubur dan sebangsanya), ekinodermata (teripang, bulu babi, dan sebangsanya), tumbuhan air (termasuk alga, seperti rumput laut), reptil (buaya, aligator, kura -kura, penyu, dan sebangsanya), dan binatang amfibi (kodok dan sebangsanya) menggunakan cara yang dirancang untuk meningkatkan jumlah biota air yang dihasilkan melebihi kapasitas alami lingkungan (sebagai contoh pengembangbiakan secara alami, pemberian makanan, dan menjaga dari pemangsa). Pembudidayaan ikan juga mencakup kepemilikan individu, perusahaan, atau negara atas setiap organisme individu selama tahap pemeliharaan atau budi daya hingga tahap pemanenan. Budi daya mencakup kegiatan pembesaran ikan hingga tahap remaja atau dewasa dalam penangkaran. Golongan ini juga mencakup kegiatan pembenihan dan pembesaran yang dilakukan dalam kondisi buatan. Golongan ini juga mencakup kegiatan pembudidayaan ikan di area atau lokasi hutan (silvofishery). Golongan ini tidak mencakup kegiatan pembibitan dan budi daya reptilia (misalnya ular, kura-kura), lihat subgolongan 0149.",
+    "description": "Golongan ini mencakup kegiatan pembudidayaan ikan, misalnya proses produksi yang melibatkan penebaran benih (pendederan), pembesaran, pembiakan atau pembenihan, hingga pemanenan dari biota air, seperti ikan bersirip (kerapu, kakap, dan sejenisnya), moluska  (kerang, tiram, cumi-cumi, gurita, siput, dan sebangsanya), krustasea (udang, lobster, rajungan, kepiting, dan sebangsanya), coelenterata (ubur-ubur dan sebangsanya), ekinodermata (teripang, bulu babi, dan sebangsanya), tumbuhan air (termasuk alga, seperti rumput laut), reptil (buaya, aligator, kura-kura, penyu, dan sebangsanya), dan binatang amfibi (kodok dan sebangsanya) menggunakan cara yang dirancang untuk meningkatkan jumlah biota air yang dihasilkan melebihi kapasitas alami lingkungan (sebagai contoh pengembangbiakan secara alami, pemberian makanan, dan menjaga dari pemangsa). Pembudidayaan ikan juga mencakup kepemilikan individu, perusahaan, atau negara atas setiap organisme individu selama tahap pemeliharaan atau budi daya hingga tahap pemanenan. Budi daya mencakup kegiatan pembesaran ikan hingga tahap remaja atau dewasa dalam penangkaran. Golongan ini juga mencakup kegiatan pembenihan dan pembesaran yang dilakukan dalam kondisi buatan. Golongan ini juga mencakup kegiatan pembudidayaan ikan di area atau lokasi hutan (silvofishery). Golongan ini tidak mencakup kegiatan pembibitan dan budi daya reptilia (misalnya ular, kura-kura), lihat subgolongan 0149.",
     "golongan_pokok_code": "03"
   },
   {
@@ -170,13 +170,13 @@
   {
     "code": "106",
     "title": "INDUSTRI PRODUK GILINGAN PADI-PADIAN, TEPUNG, DAN PATI",
-    "description": "Golongan ini mencakup kegiatan pembuatan tepung dari serealia atau sayur-sayuran; pembersihan, pemolesan, dan penggilingan beras; serta mikronisasi dan pengolahan tepung secara termal dan pembuatan adonan atau campuran tepung dari produk tersebut. Golongan ini juga mencakup kegiatan penggilingan basah jagung dan sayur -sayuran, pembuatan tepung dari pati, serta pembuatan produk penggilingan bebas gluten. Golongan ini tidak mencakup kegiatan pengeringan gandum atas dasar balas jasa atau kontrak, lihat subgolongan 0161.",
+    "description": "Golongan ini mencakup kegiatan pembuatan tepung dari serealia atau sayur-sayuran; pembersihan, pemolesan, dan penggilingan beras; serta mikronisasi dan pengolahan tepung secara termal dan pembuatan adonan atau campuran tepung dari produk tersebut. Golongan ini juga mencakup kegiatan penggilingan basah jagung dan sayur-sayuran, pembuatan tepung dari pati, serta pembuatan produk penggilingan bebas gluten. Golongan ini tidak mencakup kegiatan pengeringan gandum atas dasar balas jasa atau kontrak, lihat subgolongan 0161.",
     "golongan_pokok_code": "10"
   },
   {
     "code": "107",
     "title": "INDUSTRI MAKANAN LAINNYA",
-    "description": "Golongan ini mencakup produksi berbagai produk makanan yang belum tercakup pada golongan sebelumnya dalam golongan pokok 10. Golongan ini mencakup kegiatan pembuatan produk bakeri; pembuatan produk gula, produk olahan kakao, cokelat, dan gula -gula; pembuat an mi, makaroni, dan produk sejenis; pembuatan hidangan dan makan siap saji dalam keadaan beku, dikalengkan, atau dibungkus; pengolahan kopi dan teh; serta pembuatan makanan khusus dan makanan yang tidak tahan lama.",
+    "description": "Golongan ini mencakup produksi berbagai produk makanan yang belum tercakup pada golongan sebelumnya dalam golongan pokok 10. Golongan ini mencakup kegiatan pembuatan produk bakeri; pembuatan produk gula, produk olahan kakao, cokelat, dan gula-gula; pembuat an mi, makaroni, dan produk sejenis; pembuatan hidangan dan makan siap saji dalam keadaan beku, dikalengkan, atau dibungkus; pengolahan kopi dan teh; serta pembuatan makanan khusus dan makanan yang tidak tahan lama.",
     "golongan_pokok_code": "10"
   },
   {
@@ -206,13 +206,13 @@
   {
     "code": "139",
     "title": "INDUSTRI TEKSTIL LAINNYA",
-    "description": "Golongan ini mencakup pembuatan barang -barang tekstil, kecuali pakaian jadi, seperti bahan rajutan, karpet dan permadani, tali dan barang dari tali, kain narrow, dan hiasan dari tekstil.",
+    "description": "Golongan ini mencakup pembuatan barang-barang tekstil, kecuali pakaian jadi, seperti bahan rajutan, karpet dan permadani, tali dan barang dari tali, kain narrow, dan hiasan dari tekstil.",
     "golongan_pokok_code": "13"
   },
   {
     "code": "141",
     "title": "INDUSTRI PAKAIAN JADI DAN PERLENGKAPANNYA SELAIN DARI KULIT BERBULU",
-    "description": "Golongan ini mencakup pembuatan pakaian jadi dengan bahan selain dari kulit berbulu dan merupakan bahan yang dapat dilapisi, diimpregnasi, atau diberi karet tetapi tidak dibuat melalui perajutan atau crochet. Namun, golongan ini mencakup penutup kepala dari kulit berbulu. Golongan ini mencakup - pembuatan pakaian jadi dari kulit atau kulit komposisi, termasuk perlengkapan pakaian kerja industri dari kulit seperti celemek kulit tukang las; - pembuatan pakaian kerja; - pembuatan luaran lainnya dari kain woven, rajutan atau tenunan, kain non-woven, dan lain -lain untuk pria, wanita dan anak -anak: mantel, jas, ansamble, jaket, celana panjang, dan rok - pembuatan pakaian dalam dan pakaian tidur dari kain tenun, kain rajut, atau kain crocheted untuk pria, wanita dan anak -anak: kemeja, kaus/t -shirt, celana dalam, celana pendek, piyama, gaun tidur, gaun ganti, blus, slip, bra, dan korset; - pembuatan pakaian bayi, pakaian olahraga, pakaian ski, pakaian renang, dan lain-lain; - pembuatan topi dan peci; - pembuatan perlengkapan pakaian lain, seperti sarung tangan, ikat pinggang, selendang, dan hairnet. Golongan ini juga mencakup - penjahitan khusus; - pembuatan penutup kepala dari kulit bulu; - pembuatan alas kaki dari bahan tekstil tanpa pengaplikasian sol; - pembuatan bagian -bagian dari produk yang sudah disebutkan sebelumnya. Golongan ini tidak mencakup - pembuatan pakaian jadi dari kulit bulu (kecuali penutup kepala), lihat 1420; - pembuatan pakaian rajut atau renda dan barang-barang jadi lainnya yang dibentuk langsung, lihat 1430; - pembuatan alas kaki, lihat 1520; - pembuatan pakaian jadi dari karet atau plastik yang tidak dirakit dengan cara dijahit tetapi hanya disegel, lihat 2219, 2220; - pembuatan sarung tangan olahraga berbahan kulit dan penutup kepala olahraga, lihat 3230; - pembuatan pelindung kepala (kecuali penutup kepala olahraga), lihat 3290; - pembuatan baju tahan api dan pakaian pelindung keselamatan, lihat 3290; - perbaikan pakaian jadi, lihat 9529.",
+    "description": "Golongan ini mencakup pembuatan pakaian jadi dengan bahan selain dari kulit berbulu dan merupakan bahan yang dapat dilapisi, diimpregnasi, atau diberi karet tetapi tidak dibuat melalui perajutan atau crochet. Namun, golongan ini mencakup penutup kepala dari kulit berbulu. Golongan ini mencakup - pembuatan pakaian jadi dari kulit atau kulit komposisi, termasuk perlengkapan pakaian kerja industri dari kulit seperti celemek kulit tukang las; - pembuatan pakaian kerja; - pembuatan luaran lainnya dari kain woven, rajutan atau tenunan, kain non-woven, dan lain-lain untuk pria, wanita dan anak-anak: mantel, jas, ansamble, jaket, celana panjang, dan rok - pembuatan pakaian dalam dan pakaian tidur dari kain tenun, kain rajut, atau kain crocheted untuk pria, wanita dan anak-anak: kemeja, kaus/t -shirt, celana dalam, celana pendek, piyama, gaun tidur, gaun ganti, blus, slip, bra, dan korset; - pembuatan pakaian bayi, pakaian olahraga, pakaian ski, pakaian renang, dan lain-lain; - pembuatan topi dan peci; - pembuatan perlengkapan pakaian lain, seperti sarung tangan, ikat pinggang, selendang, dan hairnet. Golongan ini juga mencakup - penjahitan khusus; - pembuatan penutup kepala dari kulit bulu; - pembuatan alas kaki dari bahan tekstil tanpa pengaplikasian sol; - pembuatan bagian-bagian dari produk yang sudah disebutkan sebelumnya. Golongan ini tidak mencakup - pembuatan pakaian jadi dari kulit bulu (kecuali penutup kepala), lihat 1420; - pembuatan pakaian rajut atau renda dan barang-barang jadi lainnya yang dibentuk langsung, lihat 1430; - pembuatan alas kaki, lihat 1520; - pembuatan pakaian jadi dari karet atau plastik yang tidak dirakit dengan cara dijahit tetapi hanya disegel, lihat 2219, 2220; - pembuatan sarung tangan olahraga berbahan kulit dan penutup kepala olahraga, lihat 3230; - pembuatan pelindung kepala (kecuali penutup kepala olahraga), lihat 3290; - pembuatan baju tahan api dan pakaian pelindung keselamatan, lihat 3290; - perbaikan pakaian jadi, lihat 9529.",
     "golongan_pokok_code": "14"
   },
   {
@@ -230,7 +230,7 @@
   {
     "code": "151",
     "title": "PENYAMAKAN, PEWARNAAN, DAN PENGOLAHAN KULIT DAN KULIT BERBULU; PEMBUATAN KOPER, TAS TANGAN, PELANA, DAN ALAT PENGEKANG",
-    "description": "Golongan ini mencakup pembuatan kulit dan kulit berbulu, serta barang- barang yang terbuat dari kulit, tiruan kulit, dan bahan lainnya, seperti koper, tas tangan, pelana, dan alat pengekang untuk hewan.",
+    "description": "Golongan ini mencakup pembuatan kulit dan kulit berbulu, serta barang-barang yang terbuat dari kulit, tiruan kulit, dan bahan lainnya, seperti koper, tas tangan, pelana, dan alat pengekang untuk hewan.",
     "golongan_pokok_code": "15"
   },
   {
@@ -248,7 +248,7 @@
   {
     "code": "162",
     "title": "INDUSTRI BARANG DARI KAYU, GABUS, JERAMI, DAN BAHAN ANYAMAN",
-    "description": "Golongan ini mencakup pembuatan barang -barang dari kayu, gabus, jerami, atau bahan anyaman seperti bambu dan rotan, termasuk bentuk dasar hingga produk rakitan.",
+    "description": "Golongan ini mencakup pembuatan barang-barang dari kayu, gabus, jerami, atau bahan anyaman seperti bambu dan rotan, termasuk bentuk dasar hingga produk rakitan.",
     "golongan_pokok_code": "16"
   },
   {
@@ -260,7 +260,7 @@
   {
     "code": "181",
     "title": "PENCETAKAN DAN KEGIATAN JASA TERKAIT",
-    "description": "Golongan ini mencakup kegiatan pencetakan barang -barang, seperti koran, buku, terbitan berkala, surat-surat bisnis dan kartu ucapan, serta pencetakan pada berbagai media, dan kegiatan penunjang terkait pencetakan, seperti penjilidan buku, jasa pembuatan pe lat cetak, dan pencitraan data/ data imaging . Pencetakan dapat dilakukan dengan berbagai teknik dan berbagai materi yang berbeda.",
+    "description": "Golongan ini mencakup kegiatan pencetakan barang-barang, seperti koran, buku, terbitan berkala, surat-surat bisnis dan kartu ucapan, serta pencetakan pada berbagai media, dan kegiatan penunjang terkait pencetakan, seperti penjilidan buku, jasa pembuatan pe lat cetak, dan pencitraan data/ data imaging . Pencetakan dapat dilakukan dengan berbagai teknik dan berbagai materi yang berbeda.",
     "golongan_pokok_code": "18"
   },
   {
@@ -302,7 +302,7 @@
   {
     "code": "210",
     "title": "INDUSTRI SEDIAAN FARMASI, OBAT KIMIA, DAN OBAT TRADISIONAL",
-    "description": "Golongan ini mencakup pembuatan bahan baku farmasi, produk farmasi dasar, dan sediaan farmasi. Golongan ini mencakup antara lain preparat darah, obat -obatan jadi, sediaan diagnostik, sediaan medis, obat tradisional atau jamu, suplemen kesehatan, dan produk  botanikal untuk keperluan farmasi.",
+    "description": "Golongan ini mencakup pembuatan bahan baku farmasi, produk farmasi dasar, dan sediaan farmasi. Golongan ini mencakup antara lain preparat darah, obat-obatan jadi, sediaan diagnostik, sediaan medis, obat tradisional atau jamu, suplemen kesehatan, dan produk  botanikal untuk keperluan farmasi.",
     "golongan_pokok_code": "21"
   },
   {
@@ -320,7 +320,7 @@
   {
     "code": "231",
     "title": "INDUSTRI KACA DAN PRODUK DARI KACA",
-    "description": "Golongan ini mencakup di antaranya pembuatan kaca dan produk dari kaca dalam berbagai bentuk dengan berbagai proses. Golongan ini juga mencakup pembuatan alat -alat rumah tangga dari kaca, peralatan laboratorium atau kedokteran, peralatan listrik dan isolasi, serat kaca, dan perhiasan imitasi.",
+    "description": "Golongan ini mencakup di antaranya pembuatan kaca dan produk dari kaca dalam berbagai bentuk dengan berbagai proses. Golongan ini juga mencakup pembuatan alat-alat rumah tangga dari kaca, peralatan laboratorium atau kedokteran, peralatan listrik dan isolasi, serat kaca, dan perhiasan imitasi.",
     "golongan_pokok_code": "23"
   },
   {
@@ -350,7 +350,7 @@
   {
     "code": "251",
     "title": "INDUSTRI PRODUK LOGAM STRUKTURAL, TANGKI, TANDON AIR, DAN GENERATOR UAP",
-    "description": "Golongan ini mencakup pembuatan produk logam struktural (seperti kerangka atau bagian dari konstruksi), barang -barang jenis kontainer logam (seperti reservoir atau tandon air, tangki, ketel uap untuk pemanas sentral), dan generator uap.",
+    "description": "Golongan ini mencakup pembuatan produk logam struktural (seperti kerangka atau bagian dari konstruksi), barang-barang jenis kontainer logam (seperti reservoir atau tandon air, tangki, ketel uap untuk pemanas sentral), dan generator uap.",
     "golongan_pokok_code": "25"
   },
   {
@@ -362,7 +362,7 @@
   {
     "code": "259",
     "title": "INDUSTRI PRODUK LOGAM PABRIKASI LAINNYA DAN PENGERJAAN LOGAM",
-    "description": "Golongan ini mencakup kegiatan umum pengolahan logam, seperti penempaan atau penekanan, penyepuhan, pelapisan, pengukiran, pemboran, penyemiran, dan pengelasan, yang umumnya dilakukan atas dasar balas jasa atau kontrak. Golongan ini juga mencakup pembuatan berbagai produk logam, seperti alat pemotong, pisau, gunting dan lain - lain; perkakas tangan dari logam dan perangkat keras lainnya; kaleng atau ember; paku, baut dan mur; barang rumah tangga dari logam; peralatan logam, baling -baling, dan jangkar kapal; peralatan jalur rel kereta api dan lain-lain, serta berbagai produk logam untuk penggunaan rumah tangga dan industri.",
+    "description": "Golongan ini mencakup kegiatan umum pengolahan logam, seperti penempaan atau penekanan, penyepuhan, pelapisan, pengukiran, pemboran, penyemiran, dan pengelasan, yang umumnya dilakukan atas dasar balas jasa atau kontrak. Golongan ini juga mencakup pembuatan berbagai produk logam, seperti alat pemotong, pisau, gunting dan lain-lain; perkakas tangan dari logam dan perangkat keras lainnya; kaleng atau ember; paku, baut dan mur; barang rumah tangga dari logam; peralatan logam, baling-baling, dan jangkar kapal; peralatan jalur rel kereta api dan lain-lain, serta berbagai produk logam untuk penggunaan rumah tangga dan industri.",
     "golongan_pokok_code": "25"
   },
   {
@@ -386,7 +386,7 @@
   {
     "code": "264",
     "title": "INDUSTRI BARANG ELEKTRONIK RUMAH TANGGA",
-    "description": "Golongan ini mencakup pembuatan peralatan audio dan video elektronik untuk hiburan rumah tangga, kendaraan bermotor, amplifier untuk instrumen musik, dan sistem alat pengeras suara untuk penyampaian informasi. Golongan ini juga mencakup di antaranya peralatan penggandaan dan perekaman lain, televisi, sistem amplifier dan stereo untuk instrumen musik, video game untuk rumah tangga, kamera video, CD, DVD player, dan sistem alat pengeras suara untuk penyampaian informasi, mikrofon, mesin karaoke, dan jukebox, headphone, dan lain- lain.",
+    "description": "Golongan ini mencakup pembuatan peralatan audio dan video elektronik untuk hiburan rumah tangga, kendaraan bermotor, amplifier untuk instrumen musik, dan sistem alat pengeras suara untuk penyampaian informasi. Golongan ini juga mencakup di antaranya peralatan penggandaan dan perekaman lain, televisi, sistem amplifier dan stereo untuk instrumen musik, video game untuk rumah tangga, kamera video, CD, DVD player, dan sistem alat pengeras suara untuk penyampaian informasi, mikrofon, mesin karaoke, dan jukebox, headphone, dan lain-lain.",
     "golongan_pokok_code": "26"
   },
   {
@@ -452,13 +452,13 @@
   {
     "code": "281",
     "title": "INDUSTRI MESIN UNTUK KEPERLUAN UMUM",
-    "description": "Golongan ini mencakup pembuatan mesin untuk keperluan umum yaitu mesin yang biasa digunakan dalam cakupan luas dari KBLI, seperti halnya pembuatan komponen yang digunakan dalam pembuatan berbagai macam mesin lain atau pembuatan mesin yang mendukung operasi usaha lain. Golongan ini termasuk pembuatan mesin dan turbin, kecuali mesin kendaraan dan pesawat udara Termasuk juga peralatan mesin tenaga air, pompa, kompresor, katup/klep dan kran, bearing, gir, dan unsur -unsur untuk menggerakkan gir kemudi, oven, tungku dan tungku pembakar, peralatan untuk pemindahan dan pengangkatan barang, mesin dan peralatan perkantoran (kecuali peralatan komputer dan perlengkapannya), peralatan/perkakas tangan yang digerakkan tenaga dan mesin untuk keperluan umum lainnya, termasuk kegiatan remanufakturing dan rebuilding yang melekat pada masing-masing jenis kegiatannya.",
+    "description": "Golongan ini mencakup pembuatan mesin untuk keperluan umum yaitu mesin yang biasa digunakan dalam cakupan luas dari KBLI, seperti halnya pembuatan komponen yang digunakan dalam pembuatan berbagai macam mesin lain atau pembuatan mesin yang mendukung operasi usaha lain. Golongan ini termasuk pembuatan mesin dan turbin, kecuali mesin kendaraan dan pesawat udara Termasuk juga peralatan mesin tenaga air, pompa, kompresor, katup/klep dan kran, bearing, gir, dan unsur-unsur untuk menggerakkan gir kemudi, oven, tungku dan tungku pembakar, peralatan untuk pemindahan dan pengangkatan barang, mesin dan peralatan perkantoran (kecuali peralatan komputer dan perlengkapannya), peralatan/perkakas tangan yang digerakkan tenaga dan mesin untuk keperluan umum lainnya, termasuk kegiatan remanufakturing dan rebuilding yang melekat pada masing-masing jenis kegiatannya.",
     "golongan_pokok_code": "28"
   },
   {
     "code": "282",
     "title": "INDUSTRI MESIN UNTUK KEPERLUAN KHUSUS",
-    "description": "Golongan ini mencakup pembuatan mesin untuk keperluan khusus, yaitu mesin untuk keperluan eksklusif dalam aktivitas KBLI atau kelompok kecil industri KBLI. Kebanyakan mesin -mesin ini digunakan dalam proses - proses industri, seperti industri makanan atau ind ustri tekstil. Golongan ini juga mencakup pembuatan mesin khusus untuk kegiatan bukan industri. Golongan ini mencakup pembuatan mesin pertanian dan kehutanan, mesin dan perkakas mesin untuk pembentukan logam, mesin metalurgi, mesin-mesin untuk pertambangan, penggalian dan konstruksi, mesin untuk tekstil, pakaian jadi, barang dari kulit dan mesin untuk keperluan khusus lain, termasuk kegiatan remanufakturing dan rebuilding yang melekat pada masing-masing jenis kegiatannya.",
+    "description": "Golongan ini mencakup pembuatan mesin untuk keperluan khusus, yaitu mesin untuk keperluan eksklusif dalam aktivitas KBLI atau kelompok kecil industri KBLI. Kebanyakan mesin-mesin ini digunakan dalam proses-proses industri, seperti industri makanan atau ind ustri tekstil. Golongan ini juga mencakup pembuatan mesin khusus untuk kegiatan bukan industri. Golongan ini mencakup pembuatan mesin pertanian dan kehutanan, mesin dan perkakas mesin untuk pembentukan logam, mesin metalurgi, mesin-mesin untuk pertambangan, penggalian dan konstruksi, mesin untuk tekstil, pakaian jadi, barang dari kulit dan mesin untuk keperluan khusus lain, termasuk kegiatan remanufakturing dan rebuilding yang melekat pada masing-masing jenis kegiatannya.",
     "golongan_pokok_code": "28"
   },
   {
@@ -518,7 +518,7 @@
   {
     "code": "321",
     "title": "INDUSTRI PERHIASAN, PERHIASAN IMITASI, DAN BARANG BERHARGA",
-    "description": "Golongan ini mencakup pembuatan barang -barang perhiasan dan perhiasan imitasi. Golongan ini juga mencakup produksi mutiara, batu berharga, pembuatan perhiasan dari logam mulia, atau kombinasi dari bahan-bahan tersebut; perhiasan yang digunakan pada materi lain, seperti barang-barang keagamaan; barang-barang teknik, laboratorium, barang-barang ukiran, dan barang-barang pribadi dari logam mulia.",
+    "description": "Golongan ini mencakup pembuatan barang-barang perhiasan dan perhiasan imitasi. Golongan ini juga mencakup produksi mutiara, batu berharga, pembuatan perhiasan dari logam mulia, atau kombinasi dari bahan-bahan tersebut; perhiasan yang digunakan pada materi lain, seperti barang-barang keagamaan; barang-barang teknik, laboratorium, barang-barang ukiran, dan barang-barang pribadi dari logam mulia.",
     "golongan_pokok_code": "32"
   },
   {
@@ -554,7 +554,7 @@
   {
     "code": "331",
     "title": "REPARASI DAN PEMELIHARAAN PRODUK LOGAM PABRIKASI, MESIN, DAN PERALATAN",
-    "description": "Golongan ini mencakup perbaikan dan pemeliharaan produk logam pabrikasi, peralatan dan mesin, mencakup perbaikan khusus barang - barang yang dihasilkan lapangan usaha industri dengan tujuan untuk pemulihan barang-barang logam, mesin dan peralatan serta produk lain menjadi baik, termasuk juga disini jasa rekondisi. Ketentuan pemeliharaan umum atau rutin (servis) mesin -mesin tersebut untuk memastikan mesin bekerja efisien dan untuk mencegah kerusakan dan perbaikan yang tidak penting, tercakup di sini. Golongan ini juga mencakup perbaikan produk logam pabrikasi, mesin industri, peralatan listrik, elektronik dan optik, alat angkutan kecuali kendaraan bermotor dan semua peralatan lain. Golongan ini tidak mencakup - membangun kembali atau membuat ulang mesin dan peralatan, lihat korespondensi golongan pokok 25-30; - pembersihan mesin industri, lihat subgolongan 8129; - reparasi dan pemeliharaan komputer dan peralatan komunikasi, lihat golongan 951; - reparasi dan pemeliharaan barang -barang rumah tangga, lihat golongan 952.",
+    "description": "Golongan ini mencakup perbaikan dan pemeliharaan produk logam pabrikasi, peralatan dan mesin, mencakup perbaikan khusus barang-barang yang dihasilkan lapangan usaha industri dengan tujuan untuk pemulihan barang-barang logam, mesin dan peralatan serta produk lain menjadi baik, termasuk juga disini jasa rekondisi. Ketentuan pemeliharaan umum atau rutin (servis) mesin-mesin tersebut untuk memastikan mesin bekerja efisien dan untuk mencegah kerusakan dan perbaikan yang tidak penting, tercakup di sini. Golongan ini juga mencakup perbaikan produk logam pabrikasi, mesin industri, peralatan listrik, elektronik dan optik, alat angkutan kecuali kendaraan bermotor dan semua peralatan lain. Golongan ini tidak mencakup - membangun kembali atau membuat ulang mesin dan peralatan, lihat korespondensi golongan pokok 25-30; - pembersihan mesin industri, lihat subgolongan 8129; - reparasi dan pemeliharaan komputer dan peralatan komunikasi, lihat golongan 951; - reparasi dan pemeliharaan barang-barang rumah tangga, lihat golongan 952.",
     "golongan_pokok_code": "33"
   },
   {
@@ -602,7 +602,7 @@
   {
     "code": "381",
     "title": "PENGUMPULAN LIMBAH ATAU SAMPAH",
-    "description": "Golongan ini mencakup kegiatan pengumpulan limbah dan sampah dari rumah tangga dan perusahaan dengan memakai tempat sampah, kontainer sampah, dan lain -lain. Golongan ini juga mencakup kegiatan pengumpulan limbah atau sampah berbahaya dan tidak berbahaya, misalnya popok, baterai bekas, limbah pembongkaran, serta limbah oli dari rumah tangga dan kapal.",
+    "description": "Golongan ini mencakup kegiatan pengumpulan limbah dan sampah dari rumah tangga dan perusahaan dengan memakai tempat sampah, kontainer sampah, dan lain-lain. Golongan ini juga mencakup kegiatan pengumpulan limbah atau sampah berbahaya dan tidak berbahaya, misalnya popok, baterai bekas, limbah pembongkaran, serta limbah oli dari rumah tangga dan kapal.",
     "golongan_pokok_code": "38"
   },
   {
@@ -728,7 +728,7 @@
   {
     "code": "471",
     "title": "PERDAGANGAN ECERAN BERBAGAI MACAM BARANG",
-    "description": "Golongan ini mencakup penjualan eceran berbagai macam produk dalam satu tempat yang sama, seperti supermaket, hipermarket, dan toko serba ada (toserba) yang menjual berbagai macam barang, seperti makanan, minuman atau tembakau, pakaian jadi, furnitur, kosm etik, perhiasan, mainan, alat -alat olahraga. Aturan pendefinisian perdagangan eceran barang tertentu dan perdagangan eceran berbagai macam barang dijelaskan pada bagian pengantar. Golongan ini tidak mencakup - perdagangan eceran barang khusus, lihat golongan 472-478; - jasa intermediasi untuk perdagangan eceran barang khusus dan berbagai barang, lihat golongan 479.",
+    "description": "Golongan ini mencakup penjualan eceran berbagai macam produk dalam satu tempat yang sama, seperti supermaket, hipermarket, dan toko serba ada (toserba) yang menjual berbagai macam barang, seperti makanan, minuman atau tembakau, pakaian jadi, furnitur, kosm etik, perhiasan, mainan, alat-alat olahraga. Aturan pendefinisian perdagangan eceran barang tertentu dan perdagangan eceran berbagai macam barang dijelaskan pada bagian pengantar. Golongan ini tidak mencakup - perdagangan eceran barang khusus, lihat golongan 472-478; - jasa intermediasi untuk perdagangan eceran barang khusus dan berbagai barang, lihat golongan 479.",
     "golongan_pokok_code": "47"
   },
   {
@@ -752,13 +752,13 @@
   {
     "code": "475",
     "title": "PERDAGANGAN ECERAN KHUSUS PERLENGKAPAN RUMAH TANGGA LAINNYA",
-    "description": "Golongan ini mencakup perdagangan eceran khusus peralatan rumah tangga, seperti tekstil, bahan bangunan, penutup lantai, peralatan listrik dan furnitur, termasuk perdagangan eceran barang untuk penerangan, alat-alat rumah tangga dan pecah belah, alat -alat musik, sistem keamanan, dan barang rumah tangga lainnya serta peralatan ytdl. Golongan ini tidak mencakup - perdagangan eceran peralatan audio dan video, lihat subgolongan 4740; - perdagangan eceran perlengkapan rumah tangga bekas, lihat subgolongan 4774.",
+    "description": "Golongan ini mencakup perdagangan eceran khusus peralatan rumah tangga, seperti tekstil, bahan bangunan, penutup lantai, peralatan listrik dan furnitur, termasuk perdagangan eceran barang untuk penerangan, alat-alat rumah tangga dan pecah belah, alat-alat musik, sistem keamanan, dan barang rumah tangga lainnya serta peralatan ytdl. Golongan ini tidak mencakup - perdagangan eceran peralatan audio dan video, lihat subgolongan 4740; - perdagangan eceran perlengkapan rumah tangga bekas, lihat subgolongan 4774.",
     "golongan_pokok_code": "47"
   },
   {
     "code": "476",
     "title": "PERDAGANGAN ECERAN KHUSUS BARANG KESENIAN DAN REKREASI",
-    "description": "Golongan ini mencakup perdagangan eceran khusus barang -barang kebudayaan dan rekreasi, seperti buku, surat kabar dan alat tulis menulis, rekaman suara dan video dalam bentuk fisik, alat -alat olahraga, serta permainan dan mainan.",
+    "description": "Golongan ini mencakup perdagangan eceran khusus barang-barang kebudayaan dan rekreasi, seperti buku, surat kabar dan alat tulis menulis, rekaman suara dan video dalam bentuk fisik, alat-alat olahraga, serta permainan dan mainan.",
     "golongan_pokok_code": "47"
   },
   {
@@ -770,7 +770,7 @@
   {
     "code": "478",
     "title": "PERDAGANGAN ECERAN MOBIL, SEPEDA MOTOR, SUKU CADANG DAN AKSESORI TERKAIT",
-    "description": "Golongan ini mencakup perdagangan eceran kendaraan mobil, sepeda motor, baik baru maupun bekas; suku cadang, komponen, perlengkapan, peralatan dan aksesoris, seperti: - perdagangan eceran mobil penumpang, lori, mobil gandeng, kendaraan kemping, ambulans, minibus, mobil off-road, dan lain - lain; - perdagangan eceran ban karet, ban dalam, busi, baterai, peralatan penerangan, peralatan pengisi daya kendaraan, komponen kelistrikan, dan lain-lain; - perdagangan eceran suku cadang dan aksesori bekas setelah pembongkaran mobil atau kendaraan bermotor lain; - perdagangan eceran suku cadang dan aksesori untuk mobil listrik dan sepeda motor listrik. Golongan ini tidak mencakup - jasa intermediasi perdagangan besar, lihat subgolongan 4610; - jasa intermediasi perdagangan eceran mobil dan sepeda motor, lihat golongan 479; - jasa angkutan penumpang sesuai permintaan dengan kendaraan dan pengemudinya, lihat subgolongan 4922; - penyewaan dan sewa guna usaha mobil tanpa pengemudi, lihat golongan 771; - reparasi dan perawatan mobil, sepeda motor, lihat golongan 953.",
+    "description": "Golongan ini mencakup perdagangan eceran kendaraan mobil, sepeda motor, baik baru maupun bekas; suku cadang, komponen, perlengkapan, peralatan dan aksesoris, seperti: - perdagangan eceran mobil penumpang, lori, mobil gandeng, kendaraan kemping, ambulans, minibus, mobil off-road, dan lain-lain; - perdagangan eceran ban karet, ban dalam, busi, baterai, peralatan penerangan, peralatan pengisi daya kendaraan, komponen kelistrikan, dan lain-lain; - perdagangan eceran suku cadang dan aksesori bekas setelah pembongkaran mobil atau kendaraan bermotor lain; - perdagangan eceran suku cadang dan aksesori untuk mobil listrik dan sepeda motor listrik. Golongan ini tidak mencakup - jasa intermediasi perdagangan besar, lihat subgolongan 4610; - jasa intermediasi perdagangan eceran mobil dan sepeda motor, lihat golongan 479; - jasa angkutan penumpang sesuai permintaan dengan kendaraan dan pengemudinya, lihat subgolongan 4922; - penyewaan dan sewa guna usaha mobil tanpa pengemudi, lihat golongan 771; - reparasi dan perawatan mobil, sepeda motor, lihat golongan 953.",
     "golongan_pokok_code": "47"
   },
   {
@@ -914,7 +914,7 @@
   {
     "code": "581",
     "title": "AKTIVITAS PENERBITAN BUKU, SURAT KABAR, TERBITAN BERKALA, DAN PENERBITAN LAINNYA",
-    "description": "Golongan ini mencakup aktivitas penerbitan buku, surat kabar, majalah, dan terbitan berkala lainnya, termasuk juga direktori, kompilasi, dan mailing list, serta karya-karya lain seperti katalog, foto, kalender, kartu pos, kartu ucapan, formulir, poster, dan reproduksi karya seni. Karya - karya ini dicirikan dengan kreativitas intelektual yang dibutuhkan dalam proses pengembangannya dan biasanya dilindungi oleh hak cipta. Semua bentuk penerbitan yang memungkinkan (baik dalam bentuk cetak, elektronik, digital, analog, maupun bentuk lainnya) termasuk dalam golongan ini. KONTEN 721",
+    "description": "Golongan ini mencakup aktivitas penerbitan buku, surat kabar, majalah, dan terbitan berkala lainnya, termasuk juga direktori, kompilasi, dan mailing list, serta karya-karya lain seperti katalog, foto, kalender, kartu pos, kartu ucapan, formulir, poster, dan reproduksi karya seni. Karya-karya ini dicirikan dengan kreativitas intelektual yang dibutuhkan dalam proses pengembangannya dan biasanya dilindungi oleh hak cipta. Semua bentuk penerbitan yang memungkinkan (baik dalam bentuk cetak, elektronik, digital, analog, maupun bentuk lainnya) termasuk dalam golongan ini. KONTEN 721",
     "golongan_pokok_code": "58"
   },
   {
@@ -1274,13 +1274,13 @@
   {
     "code": "829",
     "title": "AKTIVITAS JASA PENUNJANG USAHA YTDL",
-    "description": "Golongan ini mencakup kegiatan agen penagihan, biro kredit, agen informasi bisnis, dan seluruh kegiatan pendukung yang tidak diklasifikasikan di tempat lain. Kegiatan -kegiatan ini sebagian besar diberikan kepada perusahaan.",
+    "description": "Golongan ini mencakup kegiatan agen penagihan, biro kredit, agen informasi bisnis, dan seluruh kegiatan pendukung yang tidak diklasifikasikan di tempat lain. Kegiatan-kegiatan ini sebagian besar diberikan kepada perusahaan.",
     "golongan_pokok_code": "82"
   },
   {
     "code": "841",
     "title": "ADMINISTRASI PEMERINTAHAN DAN KEBIJAKAN EKONOMI, SOSIAL, DAN LINGKUNGAN HIDUP",
-    "description": "Golongan ini mencakup kegiatan administrasi umum (misalnya eksekutif, legislatif, administrasi keuangan dan lain -lain pada semua tingkat pemerintahan) dan pengawasan di bidang kehidupan sosial, ekonomi, dan kebijakan lingkungan hidup masyarakat.",
+    "description": "Golongan ini mencakup kegiatan administrasi umum (misalnya eksekutif, legislatif, administrasi keuangan dan lain-lain pada semua tingkat pemerintahan) dan pengawasan di bidang kehidupan sosial, ekonomi, dan kebijakan lingkungan hidup masyarakat.",
     "golongan_pokok_code": "84"
   },
   {
@@ -1412,7 +1412,7 @@
   {
     "code": "912",
     "title": "AKTIVITAS MUSEUM, PENGUMPULAN, SITUS BERSEJARAH, DAN MONUMEN",
-    "description": "Golongan ini mencakup aktivitas yang berkaitan dengan pengoperasian, pengelolaan, pemeliharaan, pelestarian dan penilaian warisan budaya yang berupa berbagai macam koleksi berwujud/ tangible, tidak berwujud/intangible, dan digital (baik yang bersifat privat maupun publik). Golongan ini juga mencakup aktivitas yang berkaitan dengan tempat - tempat warisan budaya sebagai hasil dari intervensi manusia terhadap lingkungannya, dari lanskap hingga taman, dari situs bersejarah dan arkeologi hingga bangunan. Golongan ini tidak mencakup - renovasi dan restorasi situs dan bangunan bersejarah, lihat kategori F; - perdagangan eceran lukisan dan patung (aktivitas komersial galeri seni), lihat subgolongan 4769; - aktivitas arsitektural yang terkait dengan rehabilitasi atau restorasi properti warisan budaya, lihat subgolongan 7110; - aktivitas konservasi dan restorasi, lihat golongan 913; - aktivitas pemeliharaan dan pelestarian lainnya yang tidak dilakukan oleh unit itu sendiri di gologan 912, lihat subgolongan 9130.",
+    "description": "Golongan ini mencakup aktivitas yang berkaitan dengan pengoperasian, pengelolaan, pemeliharaan, pelestarian dan penilaian warisan budaya yang berupa berbagai macam koleksi berwujud/ tangible, tidak berwujud/intangible, dan digital (baik yang bersifat privat maupun publik). Golongan ini juga mencakup aktivitas yang berkaitan dengan tempat-tempat warisan budaya sebagai hasil dari intervensi manusia terhadap lingkungannya, dari lanskap hingga taman, dari situs bersejarah dan arkeologi hingga bangunan. Golongan ini tidak mencakup - renovasi dan restorasi situs dan bangunan bersejarah, lihat kategori F; - perdagangan eceran lukisan dan patung (aktivitas komersial galeri seni), lihat subgolongan 4769; - aktivitas arsitektural yang terkait dengan rehabilitasi atau restorasi properti warisan budaya, lihat subgolongan 7110; - aktivitas konservasi dan restorasi, lihat golongan 913; - aktivitas pemeliharaan dan pelestarian lainnya yang tidak dilakukan oleh unit itu sendiri di gologan 912, lihat subgolongan 9130.",
     "golongan_pokok_code": "91"
   },
   {
@@ -1424,7 +1424,7 @@
   {
     "code": "914",
     "title": "AKTIVITAS TAMAN BOTANI, KEBUN BINATANG, DAN CAGAR ALAM",
-    "description": "Golongan ini mencakup pengoperasian taman botani dan kebun binatang, termasuk kebun binatang anak -anak dan pengoperasian cagar alam, termasuk pelestarian satwa liar maupun jasa konservasi dan pemeliharaan taman nasional, taman, dan cagar alam.",
+    "description": "Golongan ini mencakup pengoperasian taman botani dan kebun binatang, termasuk kebun binatang anak-anak dan pengoperasian cagar alam, termasuk pelestarian satwa liar maupun jasa konservasi dan pemeliharaan taman nasional, taman, dan cagar alam.",
     "golongan_pokok_code": "91"
   },
   {
@@ -1478,7 +1478,7 @@
   {
     "code": "953",
     "title": "REPARASI SERTA PERAWATAN MOBIL DAN SEPEDA MOTOR",
-    "description": "Golongan ini mencakup reparasi dan perawatan mobil dan sepeda motor, seperti reparasi mekanik, elektrik, elektronik, perawatan bodi, bagian - bagian mobil, kursi kendaraan, pencucian, pemolesan, serta pemasangan anti karat dan instalasi bagian dan aksesori yang bukan sebagai proses industri.",
+    "description": "Golongan ini mencakup reparasi dan perawatan mobil dan sepeda motor, seperti reparasi mekanik, elektrik, elektronik, perawatan bodi, bagian-bagian mobil, kursi kendaraan, pencucian, pemolesan, serta pemasangan anti karat dan instalasi bagian dan aksesori yang bukan sebagai proses industri.",
     "golongan_pokok_code": "95"
   },
   {
