@@ -377,6 +377,13 @@ body.light-theme .card:hover {
     margin-bottom: 0.75rem;
 }
 
+.card-header-left {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
 .badge {
     font-size: 0.7rem;
     font-weight: 600;

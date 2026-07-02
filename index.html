@@ -341,6 +341,12 @@
                 const badgeClass = item.levelLabel;
                 const badgeName = LEVEL_NAME_MAP[item.levelLabel];
 
+                let categoryBadgeHtml = '';
+                if (item.path && item.path.length > 0) {
+                    const categoryCode = item.path[0].code;
+                    categoryBadgeHtml = `<span class="badge kategori">Kategori: ${categoryCode}</span>`;
+                }
+
                 let drilldownIconHtml = '';
                 if (canDrillDown) {
                     drilldownIconHtml = `
@@ -377,7 +383,10 @@
 
                 card.innerHTML = `
                 <div class="card-header">
-                    <span class="badge ${badgeClass}">${badgeName}</span>
+                    <div class="card-header-left">
+                        ${categoryBadgeHtml}
+                        <span class="badge ${badgeClass}">${badgeName}</span>
+                    </div>
                 </div>
                 <div class="card-clickable-header ${canDrillDown ? 'drilldown-trigger' : ''}" style="display: flex; align-items: center; width: 100%; cursor: ${canDrillDown ? 'pointer' : 'default'};">
                     <h3 class="code-title">
@@ -528,6 +537,12 @@
                 const badgeClass = item.levelLabel;
                 const badgeName = LEVEL_NAME_MAP[item.levelLabel];
 
+                let categoryBadgeHtml = '';
+                if (item.path && item.path.length > 0) {
+                    const categoryCode = item.path[0].code;
+                    categoryBadgeHtml = `<span class="badge kategori">Kategori: ${categoryCode}</span>`;
+                }
+
                 const highlightText = (text) => {
                     if (!tokens || tokens.length === 0) return text;
                     let highlighted = text;
@@ -586,7 +601,10 @@
 
                 card.innerHTML = `
                 <div class="card-header">
-                    <span class="badge ${badgeClass}">${badgeName}</span>
+                    <div class="card-header-left">
+                        ${categoryBadgeHtml}
+                        <span class="badge ${badgeClass}">${badgeName}</span>
+                    </div>
                 </div>
                 <h3 class="code-title">
                     <span class="code-num">${displayCode}</span> ${displayTitle}
