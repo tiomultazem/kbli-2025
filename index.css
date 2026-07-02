@@ -426,6 +426,7 @@ body.light-theme .card:hover {
     font-size: 0.95rem;
     color: var(--text-secondary);
     word-break: break-word;
+    max-height: 40rem;
     transition: max-height 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), color 0.4s ease;
     text-align: justify;
     text-indent: 2rem;
