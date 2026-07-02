@@ -378,13 +378,15 @@
                                 </div>
                             `).join('')}
                             ${hasMore ? `
-                            <div class="collapsed-sub-items" style="display: none; flex-direction: column; gap: 0.35rem; width: 100%;">
-                                ${remainingChildren.map(child => `
-                                    <div class="sub-item-row" onclick="event.stopPropagation(); drillDownToCode('${child.code}')">
-                                        <span class="sub-item-code">[${child.code}]</span>
-                                        <span class="sub-item-title">${child.title}</span>
-                                    </div>
-                                `).join('')}
+                            <div class="collapsed-sub-items">
+                                <div class="collapsed-sub-items-inner">
+                                    ${remainingChildren.map(child => `
+                                        <div class="sub-item-row" onclick="event.stopPropagation(); drillDownToCode('${child.code}')">
+                                            <span class="sub-item-code">[${child.code}]</span>
+                                            <span class="sub-item-title">${child.title}</span>
+                                        </div>
+                                    `).join('')}
+                                </div>
                             </div>
                             <button class="toggle-sub-items-btn" data-total="${children.length}" onclick="event.stopPropagation(); toggleSubItems(this)" style="background: transparent; border: none; color: var(--accent); font-size: 0.78rem; font-weight: 600; cursor: pointer; padding: 0.25rem 0; margin-top: 0.35rem; display: inline-flex; align-items: center; gap: 0.25rem; outline: none;">
                                 Tampilkan Semua (${children.length - 3} lainnya)
@@ -616,13 +618,15 @@
                                 </div>
                             `).join('')}
                             ${hasMore ? `
-                            <div class="collapsed-sub-items" style="display: none; flex-direction: column; gap: 0.35rem; width: 100%;">
-                                ${remainingChildren.map(child => `
-                                    <div class="sub-item-row" onclick="event.stopPropagation(); drillDownToCode('${child.code}')">
-                                        <span class="sub-item-code">[${child.code}]</span>
-                                        <span class="sub-item-title">${child.title}</span>
-                                    </div>
-                                `).join('')}
+                            <div class="collapsed-sub-items">
+                                <div class="collapsed-sub-items-inner">
+                                    ${remainingChildren.map(child => `
+                                        <div class="sub-item-row" onclick="event.stopPropagation(); drillDownToCode('${child.code}')">
+                                            <span class="sub-item-code">[${child.code}]</span>
+                                            <span class="sub-item-title">${child.title}</span>
+                                        </div>
+                                    `).join('')}
+                                </div>
                             </div>
                             <button class="toggle-sub-items-btn" data-total="${children.length}" onclick="event.stopPropagation(); toggleSubItems(this)" style="background: transparent; border: none; color: var(--accent); font-size: 0.78rem; font-weight: 600; cursor: pointer; padding: 0.25rem 0; margin-top: 0.35rem; display: inline-flex; align-items: center; gap: 0.25rem; outline: none;">
                                 Tampilkan Semua (${children.length - 3} lainnya)
@@ -795,12 +799,12 @@
             const collapsedContainer = btn.previousElementSibling;
             const totalCount = parseInt(btn.getAttribute('data-total'));
             const remainingCount = totalCount - 3;
-            if (collapsedContainer.style.display === 'none') {
-                collapsedContainer.style.display = 'flex';
-                btn.innerHTML = `Sembunyikan <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="margin-left: 2px; transform: rotate(180deg);"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"></path></svg>`;
-            } else {
-                collapsedContainer.style.display = 'none';
+            if (collapsedContainer.classList.contains('expanded')) {
+                collapsedContainer.classList.remove('expanded');
                 btn.innerHTML = `Tampilkan Semua (${remainingCount} lainnya) <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="margin-left: 2px;"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"></path></svg>`;
+            } else {
+                collapsedContainer.classList.add('expanded');
+                btn.innerHTML = `Sembunyikan <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="margin-left: 2px; transform: rotate(180deg);"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"></path></svg>`;
             }
         };
 

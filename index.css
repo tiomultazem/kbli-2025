@@ -824,3 +824,24 @@ body.light-theme .sub-item-row:hover {
         height: 38px;
     }
 }
+
+/* Animated Sub-items Collapsible */
+.collapsed-sub-items {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    width: 100%;
+    overflow: hidden;
+}
+
+.collapsed-sub-items.expanded {
+    grid-template-rows: 1fr;
+}
+
+.collapsed-sub-items-inner {
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    padding-top: 0.35rem;
+}
